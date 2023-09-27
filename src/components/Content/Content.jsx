@@ -3,6 +3,7 @@ import womenClothing from '../../assets/female-bluejean.webp';
 import furniture from '../../assets/home-furnishings-stock.webp';
 import menClothing from '../../assets/ian-dooley-stock.webp';
 import shoes from '../../assets/shoes-water-splash-stock.webp';
+import Button from '../Button/Button';
 import '../Content/Content.css';
 
 function Content() {
@@ -25,7 +26,7 @@ function Content() {
           <img src={shoes} alt='' />
         </div>
       </div>
-      {/* <Button /> Placeholder for dev*/}
+      <Button />
     </div>
   );
 }
