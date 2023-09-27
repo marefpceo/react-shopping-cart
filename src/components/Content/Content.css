@@ -1,3 +1,9 @@
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .img-div {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -12,4 +18,8 @@
 .main-image img {
   width: 100%;
   height: 125px;
+}
+
+#shop-button {
+  margin-top: 3rem;
 }

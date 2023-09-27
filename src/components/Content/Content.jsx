@@ -26,7 +26,21 @@ function Content() {
           <img src={shoes} alt='' />
         </div>
       </div>
-      <Button />
+      <Button 
+        id={'shop-button'}
+        buttonType={'button'}
+        text={'Shop Now'}
+        style={
+          {
+          backgroundColor: 'blue',
+          color: '#ffffff',
+          border: '1px solid #000000',
+          borderRadius: '4px',
+          width: '80px',
+          height: '30px'
+        }
+        }
+      />
     </div>
   );
 }
