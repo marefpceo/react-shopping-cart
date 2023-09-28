@@ -26,5 +26,12 @@ aside {
 .menu-container h2 {
   text-align: center;
   margin: 0;
-  padding: 0.5rem;
+  padding-top: 2rem;
+}
+
+#menu-exit {
+  width: 25px;
+  position: absolute;
+  right: 28%;
+  top: 2%;
 }

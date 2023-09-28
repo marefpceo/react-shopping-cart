@@ -1,3 +1,4 @@
+import menuExit from '../../assets/xmark-solid.png';
 import '../Menu/Menu.css';
 
 function Menu() {
@@ -27,6 +28,7 @@ function Menu() {
           </li>
         </ul>
       </div>
+      <img src={menuExit} alt='' id='menu-exit' />
     </aside>
   );
 }
