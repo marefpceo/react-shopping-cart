@@ -1,6 +1,6 @@
-import searchIcon from '../../assets/magnifying-glass-solid.png';
+// import searchIcon from '../../assets/magnifying-glass-solid.png';
 import cartIcon from '../../assets/cart-shopping-solid.png';
-import homeIcon from '../../assets/house-solid.png';
+// import homeIcon from '../../assets/house-solid.png';
 import shopIcon from '../../assets/bag-shopping-solid.png';
 import '../Nav/Nav.css';
 
@@ -8,15 +8,15 @@ function Nav() {
   return (
     <nav>
       <ul>
-        <li>
+        {/* <li>
           <img src={homeIcon} alt='' className='icons' />
-        </li>
+        </li> */}
         <li>
           <img src={shopIcon} alt='' className='icons' />
         </li>
-        <li>
+        {/* <li>
           <img src={searchIcon} alt='' className='icons' />
-        </li>
+        </li> */}
         <li>
           <img src={cartIcon} alt='' className='icons' />
         </li>
