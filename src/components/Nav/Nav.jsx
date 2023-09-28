@@ -3,20 +3,15 @@ import cartIcon from '../../assets/cart-shopping-solid.png';
 // import homeIcon from '../../assets/house-solid.png';
 import shopIcon from '../../assets/bag-shopping-solid.png';
 import '../Nav/Nav.css';
+import { Link } from 'react-router-dom';
 
 function Nav() {
   return (
     <nav>
       <ul>
-        {/* <li>
-          <img src={homeIcon} alt='' className='icons' />
-        </li> */}
         <li>
-          <img src={shopIcon} alt='' className='icons' />
+          <Link to='/shop'><img src={shopIcon} alt='' className='icons' /></Link>
         </li>
-        {/* <li>
-          <img src={searchIcon} alt='' className='icons' />
-        </li> */}
         <li>
           <img src={cartIcon} alt='' className='icons' />
         </li>

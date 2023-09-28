@@ -5,6 +5,7 @@ import menClothing from '../../assets/ian-dooley-stock.webp';
 import shoes from '../../assets/shoes-water-splash-stock.webp';
 import Button from '../Button/Button';
 import '../Content/Content.css';
+import { Link } from 'react-router-dom';
 
 function Content() {
   return (
@@ -26,21 +27,23 @@ function Content() {
           <img src={shoes} alt='' />
         </div>
       </div>
-      <Button 
-        id={'shop-button'}
-        buttonType={'button'}
-        text={'Shop Now'}
-        style={
-          {
-            backgroundColor: 'blue',
-            color: '#ffffff',
-            border: '1px solid #000000',
-            borderRadius: '4px',
-            width: '80px',
-            height: '30px'
+      <Link to='/shop'>
+        <Button
+          id={'shop-button'}
+          buttonType={'button'}
+          text={'Shop Now'}
+          style={
+            {
+              backgroundColor: 'blue',
+              color: '#ffffff',
+              border: '1px solid #000000',
+              borderRadius: '4px',
+              width: '80px',
+              height: '30px'
+            }
           }
-        }
-      />
+        />
+      </Link>
     </div>
   );
 }
