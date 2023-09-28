@@ -1,6 +1,7 @@
 header {
   padding: 1rem;
   border-bottom: 1px solid #00000022;
+  position: relative;
 }
 
 h1 {

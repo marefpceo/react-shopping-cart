@@ -10,7 +10,9 @@ function Nav() {
     <nav>
       <ul>
         <li>
-          <Link to='/shop'><img src={shopIcon} alt='' className='icons' /></Link>
+          <Link to={'/shop'}>
+            <img src={shopIcon} alt='' className='icons' />
+          </Link>
         </li>
         <li>
           <img src={cartIcon} alt='' className='icons' />
