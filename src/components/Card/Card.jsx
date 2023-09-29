@@ -38,6 +38,7 @@ function Card() {
               id='amount-input'
               min={'0'}
               max={'99'}
+              defaultValue={0}
             />
             <Button
               id={'increment-btn'}

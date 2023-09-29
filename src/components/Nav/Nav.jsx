@@ -15,7 +15,9 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <img src={cartIcon} alt='' className='icons' />
+          <Link to={'/cart'}>
+            <img src={cartIcon} alt='' className='icons' />
+          </Link>
         </li>
       </ul>
     </nav>
