@@ -1,0 +1,25 @@
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../assets/empty-mall-stock-med.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  position: relative;
+}
+
+.error-message {
+  text-align: center;
+  background-color: #f9f9f9C9;
+  border: 1px solid #f9f9f9;
+  padding: 1rem;
+  width: 80%;
+}
+
+.error-message a {
+  color: #000000;
+  text-decoration: none;
+}
