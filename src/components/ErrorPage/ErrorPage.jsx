@@ -6,7 +6,7 @@ function ErrorPage() {
     <div className='error-page'>
       <div className="error-message">
         <h1>Opps!</h1>
-        <p>The page you were looking does not exist.</p>
+        <p>The page you were looking for does not exist.</p>
         <Link to='/'>Click here to return to the home page</Link>
       </div>
     </div>
