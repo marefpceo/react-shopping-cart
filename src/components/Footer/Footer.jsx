@@ -8,48 +8,47 @@ import youtubeIcon from '../../assets/youtube.png';
 import '../Footer/Footer.css';
 
 function Footer() {
-  return(
+  return (
     <footer>
       <hr />
-      <div className="footer-links">
+      <div className='footer-links'>
         <h3>Customer Service</h3>
-        <img src={plusIcon} alt="" />
+        <img src={plusIcon} alt='' />
       </div>
       <hr />
-      <div className="footer-links">
+      <div className='footer-links'>
         <h3>Store Information</h3>
-        <img src={plusIcon} alt="" />
+        <img src={plusIcon} alt='' />
       </div>
       <hr />
-      <div className="email-signup">
+      <div className='email-signup'>
         <label>Sign up for email updates</label>
 
-        <div className="updates-div">
-          <input type="text" name="updates" id="updates-input" />
-          
+        <div className='updates-div'>
+          <input type='text' name='updates' id='updates-input' />
+
           <Button
             type={'submit'}
             text={'Submit'}
-            style={
-              {
-                backgroundColor: '#bebebe',
-                borderRadius: '3px',
-                border: '1px solid #000000',
-                width: '70px',
-              }
-            }
+            style={{
+              backgroundColor: '#f9f9f9',
+              borderRadius: '3px',
+              border: '1px solid #bebebe',
+              boxShadow: '1px 1px 3px #444444',
+              width: '70px',
+            }}
           />
         </div>
       </div>
       <hr />
-      <div className="social-media">
+      <div className='social-media'>
         <p>Connect with us on social media!</p>
-        <div className="social-media-icons">
-          <img src={facebookIcon} alt="" />
-          <img src={instagramIcon} alt="" />
-          <img src={pinterestIcon} alt="" />
-          <img src={xIcon} alt="" />
-          <img src={youtubeIcon} alt="" />
+        <div className='social-media-icons'>
+          <img src={facebookIcon} alt='' />
+          <img src={instagramIcon} alt='' />
+          <img src={pinterestIcon} alt='' />
+          <img src={xIcon} alt='' />
+          <img src={youtubeIcon} alt='' />
         </div>
       </div>
     </footer>

@@ -50,7 +50,10 @@ footer hr {
 
 #updates-input {
   border-radius: 5px;
+  border: 1pt solid #686868;
+  box-shadow: 1px 1px 2px 0 #000000 inset;
   width: 70%;
+  height: 20px;
 }
 
 .social-media {

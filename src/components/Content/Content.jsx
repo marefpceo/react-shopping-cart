@@ -32,16 +32,16 @@ function Content() {
           id={'shop-button'}
           buttonType={'button'}
           text={'Shop Now'}
-          style={
-            {
-              backgroundColor: 'blue',
-              color: '#ffffff',
-              border: '1px solid #000000',
-              borderRadius: '4px',
-              width: '80px',
-              height: '30px'
-            }
-          }
+          style={{
+            backgroundColor: '#1f51ff',
+            color: '#f9f9f9',
+            fontWeight: 'bold',
+            border: 'none',
+            boxShadow: '1px 1px 3px 0 #686868',
+            borderRadius: '4px',
+            width: '80px',
+            height: '30px',
+          }}
         />
       </Link>
     </div>
