@@ -1,5 +1,5 @@
 aside {
-  display: none;
+  display: block;
   background-color: #00000078;
   width: 100%;
   position: absolute;
@@ -7,6 +7,8 @@ aside {
   top: 0;
   left: 0;
   min-height: 100vh;
+  margin-left: -600px;
+  transition: margin-left 1s;
 }
 
 .menu {

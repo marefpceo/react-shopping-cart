@@ -1,9 +1,10 @@
 import menuExit from '../../assets/xmark-solid.png';
+import PropTypes from 'prop-types';
 import '../Menu/Menu.css';
 
-function Menu() {
+function Menu({ displayState, handleClick }) {
   return (
-    <aside>
+    <aside style={{ marginLeft: displayState }}>
       <div className='menu-container'>
         <h2>Departments</h2>
         <hr />
@@ -28,9 +29,14 @@ function Menu() {
           </li>
         </ul>
       </div>
-      <img src={menuExit} alt='' id='menu-exit' />
+      <img src={menuExit} alt='' id='menu-exit' onClick={handleClick} />
     </aside>
   );
 }
+
+Menu.propTypes = {
+  displayState: PropTypes.string,
+  handleClick: PropTypes.func,
+};
 
 export default Menu;
