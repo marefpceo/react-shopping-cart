@@ -11,11 +11,16 @@ footer hr {
 }
 
 .footer-links {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
   width: 85%;
   margin: 0 auto;
+}
+
+.footer-links div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1rem;
 }
 
 .footer-links h3 {
@@ -25,6 +30,33 @@ footer hr {
 .footer-links img {
   max-width: 30px;
   height: 100%;
+}
+
+.customer-service-list,
+.store-info-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  font-size: 14px;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 5%;
+}
+
+.customer-service-list li,
+.store-info-list li {
+  width: 100%;
+}
+
+.customer-service-list li p,
+.store-info-list li p {
+  margin: 2%;
+}
+
+.customer-service-list a,
+.store-info-list a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .updates-div {
