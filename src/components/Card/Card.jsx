@@ -1,24 +1,24 @@
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
-import samplePhoto from '../../assets/card-sample-photo.jpg';
 import upIcon from '../../assets/chevron-up-solid.png';
 import downIcon from '../../assets/chevron-down-solid.png';
 import '../Card/Card.css';
 
-function Card() {
+function Card({ thumbnail, title, description, price }) {
   return (
     <div className='card'>
       <div className='card-image'>
-        <img src={samplePhoto} alt='' />
+        <img src={thumbnail} alt='' />
       </div>
       <div className='card-body'>
         <div className='item-name'>
-          <h3>Sample OPPOF19</h3>
+          <h3>{title}</h3>
         </div>
         <div className='item-description'>
-          <p>OPPO F19 is officially announced on April 2021.</p>
+          <p>{description}</p>
         </div>
         <div className='item-cost'>
-          <p>$200</p>
+          <p>${price}</p>
         </div>
         <div className='card-footer'>
           <div className='item-amount'>
@@ -66,6 +66,14 @@ function Card() {
       </div>
     </div>
   );
+}
+
+Card.propTypes = {
+  brand: PropTypes.string,
+  thumbnail: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.number,
 }
 
 export default Card;

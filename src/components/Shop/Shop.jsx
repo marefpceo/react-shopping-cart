@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Card from '../Card/Card';
+// import returnIcon from '../../assets/square-caret-up-solid.png';
 import '../Shop/Shop.css';
 
 function Shop() {
@@ -12,7 +13,7 @@ function Shop() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('https://dummyjson.com/products?limit=0');
+        const response = await fetch('https://dummyjson.com/products?limit=10');
 
         if (response.status >= 400) {
           throw new Error('Server error');
@@ -34,15 +35,21 @@ function Shop() {
   return (
     <>
       <Header />
+      {/* <img src={returnIcon} alt='' id='return-icon'/> */}
       <div className='card-div'>
         {error ? 
           <p>A network error has occured</p> : (
             loading ? 
               <p>Loading...</p> :       
-        productData.map((item) => {
+            productData.map((item) => {
           return (
             <Card 
               key={item.id}
+              thumbnail={item.thumbnail}
+              brand={item.brand}
+              title={item.title}
+              description={item.description}
+              price={item.price}
             />
           );
         }))
