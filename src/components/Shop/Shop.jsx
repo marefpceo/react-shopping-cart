@@ -5,7 +5,7 @@ import Card from '../Card/Card';
 import '../Shop/Shop.css';
 
 function Shop() {
-  const [productData, setProductData] = useState(null);
+  const [productData, setProductData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -18,11 +18,11 @@ function Shop() {
           throw new Error('Server error');
         }
         let responseData = await response.json();
-        setProductData(responseData);
+        setProductData(responseData.products);
         setError(null);
       } catch (error) {
         setError(error);
-        setProductData(null);
+        setProductData([]);
       } finally {
         setLoading(false);
       }
@@ -35,7 +35,18 @@ function Shop() {
     <>
       <Header />
       <div className='card-div'>
-        <Card />
+        {error ? 
+          <p>A network error has occured</p> : (
+            loading ? 
+              <p>Loading...</p> :       
+        productData.map((item) => {
+          return (
+            <Card 
+              key={item.id}
+            />
+          );
+        }))
+        }
       </div>
       <Footer />
     </>
