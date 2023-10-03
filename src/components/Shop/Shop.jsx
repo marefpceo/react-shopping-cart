@@ -9,15 +9,13 @@ function Shop() {
   const [productData, setProductData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [cartList, setCartList] = useState([]);
 
   useEffect(() => {
     async function getData() {
       try {
         const response = await fetch('https://dummyjson.com/products?limit=10');
 
-        if (response.status >= 400) {
-          throw new Error('Server error');
-        }
         let responseData = await response.json();
         setProductData(responseData.products);
         setError(null);
@@ -30,6 +28,21 @@ function Shop() {
     }
     getData();
   }, []);
+
+  function addToCart(e) {
+    const cardId = e.target.parentElement.parentElement.parentElement.id;
+    const dataId = cardId.replace('card-', '');
+    const itemQuantity = e.target.previousSibling.firstChild.nextSibling.value;
+
+    setCartList({
+      title: productData[dataId - 1].title,
+      thumbnail: productData[dataId - 1].thumbnail,
+      description: productData[dataId - 1].description,
+      price: productData[dataId - 1].price,
+      quantity: itemQuantity,
+    });
+    console.log(cartList);
+  }
 
   return (
     <>
@@ -45,11 +58,13 @@ function Shop() {
             return (
               <Card
                 key={item.id}
+                id={`card-${item.id}`}
                 thumbnail={item.thumbnail}
                 brand={item.brand}
                 title={item.title}
                 description={item.description}
                 price={item.price}
+                addToCart={addToCart}
               />
             );
           })

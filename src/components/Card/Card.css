@@ -71,8 +71,7 @@ input[type='number'] {
 }
 
 #decrement-btn:active,
-#increment-btn:active,
-#add-to-cart-btn:active {
+#increment-btn:active {
   transform: scale(0.9);
   box-shadow: 0 0 5px 1px #686868;
 }
@@ -82,4 +81,8 @@ input[type='number'] {
   box-shadow: 1px 1px 1px 0px #686868;
   border-radius: 2px;
   width: 50%;
+}
+
+#add-to-cart-btn:active {
+  transform: scale(0.9);
 }

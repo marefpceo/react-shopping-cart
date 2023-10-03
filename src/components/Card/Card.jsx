@@ -5,7 +5,7 @@ import downIcon from '../../assets/chevron-down-solid.png';
 import '../Card/Card.css';
 import { useState } from 'react';
 
-function Card({ thumbnail, title, description, price }) {
+function Card({ thumbnail, title, description, price, id, addToCart }) {
   const [quantity, setQuantity] = useState('0');
   const quantityAsNumber = Number(quantity);
 
@@ -27,7 +27,7 @@ function Card({ thumbnail, title, description, price }) {
   }
 
   return (
-    <div className='card'>
+    <div className='card' id={id}>
       <div className='card-image'>
         <img src={thumbnail} alt='' />
       </div>
@@ -84,6 +84,7 @@ function Card({ thumbnail, title, description, price }) {
               fontSize: '12px',
             }}
             text={'Add To Cart'}
+            handleClick={addToCart}
           />
         </div>
       </div>
@@ -97,6 +98,9 @@ Card.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,
+  id: PropTypes.string,
+  addToCart: PropTypes.func,
+  handleChange: PropTypes.func,
 };
 
 export default Card;
