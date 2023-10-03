@@ -3,8 +3,29 @@ import Button from '../Button/Button';
 import upIcon from '../../assets/chevron-up-solid.png';
 import downIcon from '../../assets/chevron-down-solid.png';
 import '../Card/Card.css';
+import { useState } from 'react';
 
 function Card({ thumbnail, title, description, price }) {
+  const [quantity, setQuantity] = useState('0');
+  const quantityAsNumber = Number(quantity);
+
+  function handleAddQuantity() {
+    setQuantity(quantityAsNumber + 1);
+  }
+
+  function handleSubtractQuantity() {
+    if (quantity > 0) {
+      setQuantity(quantityAsNumber - 1);
+    } else {
+      return;
+    }
+  }
+
+  function handleChange(e) {
+    let value = e.target.value;
+    setQuantity(value);
+  }
+
   return (
     <div className='card'>
       <div className='card-image'>
@@ -31,14 +52,16 @@ function Card({ thumbnail, title, description, price }) {
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: '75%',
               }}
+              handleClick={handleSubtractQuantity}
             />
             <input
-              type='number'
+              type='text'
               name='amount-input'
               id='amount-input'
               min={'0'}
               max={'99'}
-              defaultValue={0}
+              value={quantity}
+              onChange={handleChange}
             />
             <Button
               id={'increment-btn'}
@@ -49,6 +72,7 @@ function Card({ thumbnail, title, description, price }) {
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: '75%',
               }}
+              handleClick={handleAddQuantity}
             />
           </div>
           <Button
@@ -58,7 +82,6 @@ function Card({ thumbnail, title, description, price }) {
               backgroundColor: '#228b22',
               color: '#f9f9f9',
               fontSize: '12px',
-              width: '100%',
             }}
             text={'Add To Cart'}
           />
@@ -74,6 +97,6 @@ Card.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,
-}
+};
 
 export default Card;

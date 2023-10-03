@@ -1,16 +1,16 @@
 import Header from '../Header/Header';
+import Content from '../Content/Content';
 import Footer from '../Footer/Footer';
-import './App.css';
+import './Home.css';
 
-function App() {
+function Home() {
   return (
     <>
       <Header />
-      {/* routing to switch between pages */}
-      <section></section>
+      <Content />
       <Footer />
     </>
   );
 }
 
-export default App;
+export default Home;

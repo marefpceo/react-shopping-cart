@@ -6,9 +6,12 @@
   flex-direction: column;
 }
 
+section {
+  flex-grow: 1;
+}
+
 body {
   height: 100vh;
   margin: 0;
   background-color: #f9f9f9;
 }
-

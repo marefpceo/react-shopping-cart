@@ -29,7 +29,6 @@ function Shop() {
       }
     }
     getData();
-    console.log(productData);
   }, []);
 
   return (
@@ -37,23 +36,24 @@ function Shop() {
       <Header />
       {/* <img src={returnIcon} alt='' id='return-icon'/> */}
       <div className='card-div'>
-        {error ? 
-          <p>A network error has occured</p> : (
-            loading ? 
-              <p>Loading...</p> :       
-            productData.map((item) => {
-          return (
-            <Card 
-              key={item.id}
-              thumbnail={item.thumbnail}
-              brand={item.brand}
-              title={item.title}
-              description={item.description}
-              price={item.price}
-            />
-          );
-        }))
-        }
+        {error ? (
+          <p>A network error has occured</p>
+        ) : loading ? (
+          <p>Loading...</p>
+        ) : (
+          productData.map((item) => {
+            return (
+              <Card
+                key={item.id}
+                thumbnail={item.thumbnail}
+                brand={item.brand}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+              />
+            );
+          })
+        )}
       </div>
       <Footer />
     </>
