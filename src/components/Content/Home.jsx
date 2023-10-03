@@ -4,10 +4,10 @@ import furniture from '../../assets/home-furnishings-stock.webp';
 import menClothing from '../../assets/ian-dooley-stock.webp';
 import shoes from '../../assets/shoes-water-splash-stock.webp';
 import Button from '../Button/Button';
-import '../Content/Content.css';
+import '../Content/Home.css';
 import { Link } from 'react-router-dom';
 
-function Content() {
+function Home() {
   return (
     <div className='main-content'>
       <div className='img-div'>
@@ -48,4 +48,4 @@ function Content() {
   );
 }
 
-export default Content;
+export default Home;

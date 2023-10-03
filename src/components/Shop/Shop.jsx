@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import Card from '../Card/Card';
 // import returnIcon from '../../assets/square-caret-up-solid.png';
 import '../Shop/Shop.css';
@@ -49,7 +47,6 @@ function Shop() {
 
   return (
     <>
-      <Header />
       {/* <img src={returnIcon} alt='' id='return-icon'/> */}
       <div className='card-div'>
         {error ? (
@@ -73,7 +70,6 @@ function Shop() {
           })
         )}
       </div>
-      <Footer />
     </>
   );
 }

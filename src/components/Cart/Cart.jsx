@@ -1,5 +1,5 @@
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
+// import Header from '../Header/Header';
+// import Footer from '../Footer/Footer';
 import Button from '../Button/Button';
 import sampleImage from '../../assets/card-sample-photo.jpg';
 import '../Cart/Cart.css';
@@ -7,7 +7,7 @@ import '../Cart/Cart.css';
 function Cart() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className='cart-div'>
         <h2>Shopping Cart</h2>
         <hr />
@@ -69,7 +69,7 @@ function Cart() {
           />
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
