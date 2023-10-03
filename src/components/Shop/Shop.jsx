@@ -34,13 +34,16 @@ function Shop() {
     const dataId = cardId.replace('card-', '');
     const itemQuantity = e.target.previousSibling.firstChild.nextSibling.value;
 
-    setCartList({
-      title: productData[dataId - 1].title,
-      thumbnail: productData[dataId - 1].thumbnail,
-      description: productData[dataId - 1].description,
-      price: productData[dataId - 1].price,
-      quantity: itemQuantity,
-    });
+    setCartList([
+      ...cartList,
+      {
+        title: productData[dataId - 1].title,
+        thumbnail: productData[dataId - 1].thumbnail,
+        description: productData[dataId - 1].description,
+        price: productData[dataId - 1].price,
+        quantity: itemQuantity,
+      },
+    ]);
     console.log(cartList);
   }
 
