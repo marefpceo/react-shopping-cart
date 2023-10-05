@@ -1,38 +1,43 @@
-// import Header from '../Header/Header';
-// import Footer from '../Footer/Footer';
 import Button from '../Button/Button';
-import sampleImage from '../../assets/card-sample-photo.jpg';
 import '../Cart/Cart.css';
+import { useOutletContext } from 'react-router-dom';
+import uniqid from 'uniqid';
 
 function Cart() {
+  const { cartList } = useOutletContext([]);
+  const { cartTotal } = useOutletContext();
+
   return (
     <>
-      {/* <Header /> */}
       <div className='cart-div'>
         <h2>Shopping Cart</h2>
         <hr />
 
-        <div className='cart-item'>
-          <div className='cart-item-header'>
-            <img src={sampleImage} alt='' className='cart-img' />
-            <div className='cart-item-description'>
-              <h3>Sample OPPOF19</h3>
-              <p>OPPO F19 is officially announced on April 2021.</p>
+        {cartList.map((item) => {
+          return (
+            <div className='cart-item' key={uniqid()}>
+              <div className='cart-item-header' key={uniqid()}>
+                <img src={item.thumbnail} alt='' className='cart-img' />
+                <div className='cart-item-description' key={uniqid()}>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+                <div className='cart-item-total' key={uniqid()}>
+                  <p>Qty: {item.quantity}</p>
+                  <div>
+                    <p>${item.price}</p>
+                    <p>Total ${item.itemTotal}</p>
+                  </div>
+                </div>
+              </div>
+              <hr />
             </div>
-          </div>
-          <div className='cart-item-total'>
-            <p>Qty: 2</p>
-            <div>
-              <p>$200</p>
-              <p>Total $400</p>
-            </div>
-          </div>
-        </div>
+          );
+        })}
 
-        <hr />
         <div className='cart-total'>
           <p>Cart Total</p>
-          <p>$400</p>
+          <p>${cartTotal}</p>
         </div>
 
         <div className='cart-options'>
@@ -69,7 +74,6 @@ function Cart() {
           />
         </div>
       </div>
-      {/* <Footer /> */}
     </>
   );
 }
