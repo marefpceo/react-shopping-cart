@@ -5,6 +5,7 @@
   flex-grow: 1;
   padding: 0 1rem;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .cart-div h2 {
@@ -15,10 +16,63 @@
   width: 100%;
 }
 
+.item-edit-modal {
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60%;
+  height: 40%;
+  position: absolute;
+  z-index: 50;
+  left: 20%;
+  top: 25%;
+  border-radius: 3px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 5px 2px #686868;
+  text-align: center;
+}
+
+.edit-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+#edit-amount-input {
+  text-align: center;
+  width: 15%;
+  height: 70%;
+}
+
+#edit-decrement-btn,
+#edit-increment-btn {
+  height: 80%;
+  width: 20px;
+  border: 1px solid #f9f9f9;
+  box-shadow: 0 0 2px 0px black;
+  border-radius: 2px;
+}
+
+#edit-decrement-btn:active,
+#edit-increment-btn:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px 1px #686868;
+}
+
+.update-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.empty-cart {
+  text-align: center;
+}
+
 .cart-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .cart-item-header {
@@ -31,9 +85,17 @@
   height: 100%;
 }
 
+.trash-btn {
+  max-width: 20px;
+  position: absolute;
+  left: 3%;
+  bottom: 30%;
+}
+
 .cart-item-description {
   width: 50%;
   font-size: 14px;
+  margin-left: 1rem;
 }
 
 .cart-item-description h3 {
@@ -50,6 +112,11 @@
   text-align: end;
 }
 
+.cart-item-total p,
+.cart-item-total div p {
+  margin-top: 0;
+}
+
 .cart-item-total div p:last-child {
   font-weight: bold;
 }
@@ -64,4 +131,8 @@
   display: flex;
   justify-content: space-around;
   padding: 1rem 0;
+}
+
+.cart-options button:active {
+  transform: scale(0.9);
 }

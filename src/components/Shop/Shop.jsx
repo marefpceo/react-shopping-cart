@@ -39,10 +39,7 @@ function Shop() {
     );
     const previousEntry = cartList.findIndex((item) => item.id === dataId) + 1;
 
-    console.log(previousEntry);
-    console.log(cartList);
-    console.log(previousEntry === dataId);
-    if (itemQuantity === '0') {
+    if (itemQuantity === 0) {
       alert('Enter a quantity'); //Placeholder until error code is written
       return;
     } else if (dataId === previousEntry) {
