@@ -29,7 +29,13 @@ function Cart() {
   }
 
   function updateCartItem() {
-    setCartList(cartList[cartItemIndex]);
+    setCartList(
+      cartList.map((updateItem) => {
+        if (updateItem.index === cartItemIndex) {
+          console.log(updateItem.index);
+        }
+      }),
+    );
   }
 
   return (
