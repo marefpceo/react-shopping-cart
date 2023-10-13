@@ -9,33 +9,42 @@ import { useState } from 'react';
 
 function Cart() {
   const { cartList, setCartList } = useOutletContext([]);
-  const { cartTotal } = useOutletContext();
+  const { cartTotal, setCartTotal } = useOutletContext();
   const [isShown, setIsShown] = useState(false);
-  const [quantity, setQuantity] = useState(0);
-  let cartItemIndex;
+  const [updatedQuantity, setUpdatedQuantity] = useState(0);
+  const [cartItemIndex, setCartItemIndex] = useState(0);
 
   function editCartItem(e) {
     const cartItemId = e.target.parentElement.parentElement.id;
-    cartItemIndex = cartList.findIndex(
+    setCartItemIndex(cartList.findIndex(
       (item) => item.id === Number(cartItemId),
-    );
+    ));
 
-    setQuantity(cartList[cartItemIndex].quantity);
+    setUpdatedQuantity(cartList[cartItemIndex].quantity);
     setIsShown(true);
   }
 
   function handleQuantityChange() {
-    setQuantity(document.getElementById('edit-amount-input').value);
+    setUpdatedQuantity(document.getElementById('edit-amount-input').value);
   }
 
   function updateCartItem() {
     setCartList(
-      cartList.map((updateItem) => {
-        if (updateItem.index === cartItemIndex) {
-          console.log(updateItem.index);
+      cartList.map((item) => {
+        if (item.id === (cartItemIndex + 1)) {
+          const update = {...item,
+            quantity: updatedQuantity,
+            itemTotal: updatedQuantity * item.price }
+          console.log(update.itemTotal);
+          return update;
+            
+        } else {
+          return item;
         }
       }),
     );
+    setIsShown(false);
+    console.log(cartList);
   }
 
   return (
@@ -60,7 +69,7 @@ function Cart() {
                 backgroundSize: '75%',
               }}
               handleClick={() => {
-                setQuantity(quantity - 1);
+                setUpdatedQuantity(updatedQuantity - 1);
               }}
             />
             <input
@@ -69,7 +78,7 @@ function Cart() {
               id='edit-amount-input'
               min={'0'}
               max={'99'}
-              value={quantity}
+              value={updatedQuantity}
               onChange={handleQuantityChange}
             />
             <Button
@@ -82,7 +91,7 @@ function Cart() {
                 backgroundSize: '75%',
               }}
               handleClick={() => {
-                setQuantity(quantity + 1);
+                setUpdatedQuantity(updatedQuantity + 1);
               }}
             />
           </div>
