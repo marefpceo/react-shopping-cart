@@ -13,14 +13,18 @@ function Cart() {
   const [isShown, setIsShown] = useState(false);
   const [updatedQuantity, setUpdatedQuantity] = useState(0);
   const [cartItemIndex, setCartItemIndex] = useState(0);
+  let cartTempTotal = 0;
 
   function editCartItem(e) {
     const cartItemId = e.target.parentElement.parentElement.id;
-    setCartItemIndex(cartList.findIndex(
-      (item) => item.id === Number(cartItemId),
-    ));
-
-    setUpdatedQuantity(cartList[cartItemIndex].quantity);
+    setUpdatedQuantity(
+      cartList[cartList.findIndex((item) => item.id === Number(cartItemId))]
+        .quantity,
+    );
+    setCartItemIndex(
+      cartList.findIndex((item) => item.id === Number(cartItemId)),
+    );
+    cartTempTotal = cartTotal - cartList[cartItemIndex].itemTotal;
     setIsShown(true);
   }
 
@@ -31,20 +35,20 @@ function Cart() {
   function updateCartItem() {
     setCartList(
       cartList.map((item) => {
-        if (item.id === (cartItemIndex + 1)) {
-          const update = {...item,
+        if (item.id === cartItemIndex + 1) {
+          const update = {
+            ...item,
             quantity: updatedQuantity,
-            itemTotal: updatedQuantity * item.price }
-          console.log(update.itemTotal);
+            itemTotal: updatedQuantity * item.price,
+          };
+          setCartTotal(cartTempTotal + update.itemTotal);
           return update;
-            
         } else {
           return item;
         }
       }),
     );
     setIsShown(false);
-    console.log(cartList);
   }
 
   return (
