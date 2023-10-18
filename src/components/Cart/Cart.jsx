@@ -32,21 +32,31 @@ function Cart() {
 
   function updateCartItem() {
     let cartTempTotal = cartTotal - cartList[cartItemIndex].itemTotal;
-    setCartList(
-      cartList.map((item) => {
-        if (item.id === cartItemIndex + 1) {
-          const update = {
-            ...item,
-            quantity: updatedQuantity,
-            itemTotal: updatedQuantity * item.price,
-          };
-          setCartTotal(cartTempTotal + update.itemTotal);
-          return update;
-        } else {
-          return item;
-        }
-      }),
-    );
+    if (updatedQuantity === 0) {
+      setCartList(cartList.filter((item) => item.id !== cartItemIndex + 1));
+    } else {
+      setCartList(
+        cartList.map((item) => {
+          if (item.id === cartItemIndex + 1) {
+            const update = {
+              ...item,
+              quantity: updatedQuantity,
+              itemTotal: updatedQuantity * item.price,
+            };
+            setCartTotal(cartTempTotal + update.itemTotal);
+            return update;
+          } else {
+            return item;
+          }
+        }),
+      );
+    }
+    setIsShown(false);
+  }
+
+  function removeCartItem() {
+    setCartTotal(cartTotal - cartList[cartItemIndex].itemTotal);
+    setCartList(cartList.filter((item) => item.id !== cartItemIndex + 1));
     setIsShown(false);
   }
 
@@ -72,7 +82,11 @@ function Cart() {
                 backgroundSize: '75%',
               }}
               handleClick={() => {
-                setUpdatedQuantity(updatedQuantity - 1);
+                if (updatedQuantity > 0) {
+                  setUpdatedQuantity(updatedQuantity - 1);
+                } else {
+                  return;
+                }
               }}
             />
             <input
@@ -111,6 +125,7 @@ function Cart() {
               id={'remove-btn'}
               buttonType={'button'}
               text={'Remove All'}
+              handleClick={removeCartItem}
             />
             <Button
               id={'update-btn'}
