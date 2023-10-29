@@ -8,6 +8,7 @@ function Shop() {
   const [productData, setProductData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [modalDisplay, setModalDisplay] = useState('none');
   const { cartList } = useOutletContext([]);
   const { setCartList } = useOutletContext();
   const { cartTotal } = useOutletContext();
@@ -40,7 +41,10 @@ function Shop() {
     const previousEntry = cartList.findIndex((item) => item.id === dataId) + 1;
 
     if (itemQuantity === 0) {
-      alert('Enter a quantity'); //Placeholder until error code is written
+      setModalDisplay('flex');
+      setTimeout(() => {
+        setModalDisplay('none'); 
+      }, 3000);
       return;
     } else if (dataId === previousEntry) {
       setCartList(
@@ -79,6 +83,10 @@ function Shop() {
     <>
       {/* <img src={returnIcon} alt='' id='return-icon'/> */}
       <div className='card-div'>
+        <div className="message-modal" style={{display: `${modalDisplay}`}}>
+          <p>Enter a quantity to add to the cart</p>
+        </div>
+
         {error ? (
           <p>A network error has occured</p>
         ) : loading ? (

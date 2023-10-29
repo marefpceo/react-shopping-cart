@@ -14,3 +14,21 @@
   top: 40%;
   margin-left: 1rem;
 }
+
+.message-modal {
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  position: fixed;
+  top: 30%;
+  right: 15%;
+  z-index: 30;
+  border: 1px solid #686868;
+  border-radius: 3px;
+  background-color: #f9f9f9F3;
+}
+
+.message-modal p {
+  margin: 10%;
+  text-align: center;
+}
