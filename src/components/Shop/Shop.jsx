@@ -9,6 +9,7 @@ function Shop() {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [modalDisplay, setModalDisplay] = useState('none');
+  const [modalMessage, setModalMessage] = useState('Added to Cart!');
   const { cartList } = useOutletContext([]);
   const { setCartList } = useOutletContext();
   const { cartTotal } = useOutletContext();
@@ -42,9 +43,10 @@ function Shop() {
 
     if (itemQuantity === 0) {
       setModalDisplay('flex');
+      setModalMessage('Enter a quantity');
       setTimeout(() => {
         setModalDisplay('none'); 
-      }, 3000);
+      }, 1500);
       return;
     } else if (dataId === previousEntry) {
       setCartList(
@@ -62,6 +64,11 @@ function Shop() {
         }),
       );
       setCartTotal(cartTotal + productData[dataId - 1].price * itemQuantity);
+      setModalMessage('Cart updated!');
+      setModalDisplay('flex');
+      setTimeout(() => {
+        setModalDisplay('none'); 
+      }, 1500);
     } else {
       setCartList([
         ...cartList,
@@ -76,6 +83,11 @@ function Shop() {
         },
       ]);
       setCartTotal(cartTotal + productData[dataId - 1].price * itemQuantity);
+      setModalMessage('Added to cart!');
+      setModalDisplay('flex');
+      setTimeout(() => {
+        setModalDisplay('none'); 
+      }, 1500);
     }
   }
 
@@ -84,7 +96,7 @@ function Shop() {
       {/* <img src={returnIcon} alt='' id='return-icon'/> */}
       <div className='card-div'>
         <div className="message-modal" style={{display: `${modalDisplay}`}}>
-          <p>Enter a quantity to add to the cart</p>
+          <p>{modalMessage}</p>
         </div>
 
         {error ? (
