@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Nav from '../Nav/Nav';
 import Menu from '../Menu/Menu';
@@ -5,7 +6,7 @@ import menuIcon from '../../assets/bars-solid.png';
 import '../Header/Header.css';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header({ cartCount }) {
   const [displayState, setDisplayState] = useState('-600px');
 
   function handleClick() {
@@ -26,11 +27,15 @@ function Header() {
             <h1>Last Stop Shop</h1>
           </Link>
         </div>
-        <Nav />
+        <Nav cartCount={cartCount}/>
       </div>
       <div className='menu-nav-div'></div>
     </header>
   );
+}
+
+Header.propTypes = {
+  cartCount: PropTypes.number,
 }
 
 export default Header;

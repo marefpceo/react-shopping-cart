@@ -7,10 +7,20 @@ import { useState } from 'react';
 function App() {
   const [cartList, setCartList] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
+
+  function updateCartCount() {
+    const quantitySum = cartList.reduce((a, b) => a + b.quantity, 0);
+    
+    setCartCount(quantitySum);
+    console.log(cartCount);
+  }
 
   return (
     <>
-      <Header />
+      <Header 
+        cartCount={cartCount}
+      />
       <Outlet
         context={{
           cartList,

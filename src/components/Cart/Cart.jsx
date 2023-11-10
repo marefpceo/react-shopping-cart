@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import trashCanIcon from '../../assets/trash-can-regular.png';
 import upIcon from '../../assets/chevron-up-solid.png';
@@ -7,7 +8,7 @@ import { useOutletContext } from 'react-router-dom';
 import uniqid from 'uniqid';
 import { useState } from 'react';
 
-function Cart() {
+function Cart({ updateCartCount }) {
   const { cartList, setCartList } = useOutletContext([]);
   const { cartTotal, setCartTotal } = useOutletContext();
   const [isShown, setIsShown] = useState(false);
@@ -23,6 +24,7 @@ function Cart() {
     setCartItemIndex(
       cartList.findIndex((item) => item.id === Number(cartItemId)),
     );
+    updateCartCount;
     setIsShown(true);
   }
 
@@ -51,12 +53,14 @@ function Cart() {
         }),
       );
     }
+    updateCartCount;
     setIsShown(false);
   }
 
   function removeCartItem() {
     setCartTotal(cartTotal - cartList[cartItemIndex].itemTotal);
     setCartList(cartList.filter((item) => item.id !== cartItemIndex + 1));
+    updateCartCount;
     setIsShown(false);
   }
 
@@ -215,6 +219,10 @@ function Cart() {
       </div>
     </>
   );
+}
+
+Cart.propTypes = {
+  updateCartCount: PropTypes.func
 }
 
 export default Cart;
