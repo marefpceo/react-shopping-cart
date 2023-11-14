@@ -9,13 +9,6 @@ function App() {
   const [cartTotal, setCartTotal] = useState(0);
   const [cartCount, setCartCount] = useState(0);
 
-  function updateCartCount() {
-    const quantitySum = cartList.reduce((a, b) => a + b.quantity, 0);
-    
-    setCartCount(quantitySum);
-    console.log(cartCount);
-  }
-
   return (
     <>
       <Header 
@@ -27,6 +20,8 @@ function App() {
           setCartList,
           cartTotal,
           setCartTotal,
+          cartCount,
+          setCartCount,
         }}
       />
       <Footer />

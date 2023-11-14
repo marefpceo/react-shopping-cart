@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import trashCanIcon from '../../assets/trash-can-regular.png';
 import upIcon from '../../assets/chevron-up-solid.png';
@@ -8,9 +7,10 @@ import { useOutletContext } from 'react-router-dom';
 import uniqid from 'uniqid';
 import { useState } from 'react';
 
-function Cart({ updateCartCount }) {
+function Cart() {
   const { cartList, setCartList } = useOutletContext([]);
   const { cartTotal, setCartTotal } = useOutletContext();
+  const { cartCount, setCartCount } = useOutletContext();
   const [isShown, setIsShown] = useState(false);
   const [updatedQuantity, setUpdatedQuantity] = useState(0);
   const [cartItemIndex, setCartItemIndex] = useState(0);
@@ -24,7 +24,6 @@ function Cart({ updateCartCount }) {
     setCartItemIndex(
       cartList.findIndex((item) => item.id === Number(cartItemId)),
     );
-    updateCartCount;
     setIsShown(true);
   }
 
@@ -53,16 +52,26 @@ function Cart({ updateCartCount }) {
         }),
       );
     }
-    updateCartCount;
+    let tempCartCount = cartList.reduce((a, b) => a + b.quantity, 0);
+    setCartCount(tempCartCount);
     setIsShown(false);
+    console.log(cartCount);
+    console.log(tempCartCount);
   }
 
   function removeCartItem() {
     setCartTotal(cartTotal - cartList[cartItemIndex].itemTotal);
     setCartList(cartList.filter((item) => item.id !== cartItemIndex + 1));
-    updateCartCount;
     setIsShown(false);
   }
+
+  // function updateCartCount() {
+  //   const quantitySum = cartList.reduce((a, b) => a + b.quantity, 0);
+    
+  //   setCartCount(quantitySum);
+  //   console.log(cartCount);
+  //   console.log(quantitySum);
+  // }
 
   return (
     <>
@@ -219,10 +228,6 @@ function Cart({ updateCartCount }) {
       </div>
     </>
   );
-}
-
-Cart.propTypes = {
-  updateCartCount: PropTypes.func
 }
 
 export default Cart;

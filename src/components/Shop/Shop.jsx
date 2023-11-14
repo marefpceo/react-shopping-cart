@@ -14,6 +14,7 @@ function Shop() {
   const { setCartList } = useOutletContext();
   const { cartTotal } = useOutletContext();
   const { setCartTotal } = useOutletContext();
+  const { cartCount, setCartCount } = useOutletContext();
 
   useEffect(() => {
     async function getData() {
@@ -63,6 +64,7 @@ function Shop() {
           }
         }),
       );
+      setCartCount(cartCount + itemQuantity);
       setCartTotal(cartTotal + productData[dataId - 1].price * itemQuantity);
       setModalMessage('Cart updated!');
       setModalDisplay('flex');
@@ -82,6 +84,7 @@ function Shop() {
           itemTotal: productData[dataId - 1].price * itemQuantity,
         },
       ]);
+      setCartCount(cartCount + itemQuantity);
       setCartTotal(cartTotal + productData[dataId - 1].price * itemQuantity);
       setModalMessage('Added to cart!');
       setModalDisplay('flex');
