@@ -3,10 +3,19 @@ import Button from '../Button/Button';
 import upIcon from '../../assets/chevron-up-solid.png';
 import downIcon from '../../assets/chevron-down-solid.png';
 import '../Card/Card.css';
-import { useState } from 'react';
+// import { useState } from 'react';
 
-function Card({ thumbnail, title, description, price, id, addToCart }) {
-  const [quantity, setQuantity] = useState('0');
+function Card({
+  thumbnail,
+  title,
+  description,
+  price,
+  id,
+  addToCart,
+  quantity,
+  setQuantity,
+}) {
+  // const [quantity, setQuantity] = useState('0');
   const quantityAsNumber = Number(quantity);
 
   function handleAddQuantity() {
@@ -101,6 +110,8 @@ Card.propTypes = {
   id: PropTypes.string,
   addToCart: PropTypes.func,
   handleChange: PropTypes.func,
+  quantity: PropTypes.string,
+  setQuantity: PropTypes.func,
 };
 
 export default Card;

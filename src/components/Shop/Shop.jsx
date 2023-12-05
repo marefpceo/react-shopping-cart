@@ -10,6 +10,7 @@ function Shop() {
   const [loading, setLoading] = useState(true);
   const [modalDisplay, setModalDisplay] = useState('none');
   const [modalMessage, setModalMessage] = useState('Added to Cart!');
+  const [quantity, setQuantity] = useState('0');
   const { cartList } = useOutletContext([]);
   const { setCartList } = useOutletContext();
   const { cartTotal } = useOutletContext();
@@ -46,7 +47,7 @@ function Shop() {
       setModalDisplay('flex');
       setModalMessage('Enter a quantity');
       setTimeout(() => {
-        setModalDisplay('none'); 
+        setModalDisplay('none');
       }, 1500);
       return;
     } else if (dataId === previousEntry) {
@@ -66,10 +67,11 @@ function Shop() {
       );
       setCartCount(cartCount + itemQuantity);
       setCartTotal(cartTotal + productData[dataId - 1].price * itemQuantity);
+      setQuantity('0');
       setModalMessage('Cart updated!');
       setModalDisplay('flex');
       setTimeout(() => {
-        setModalDisplay('none'); 
+        setModalDisplay('none');
       }, 1500);
     } else {
       setCartList([
@@ -86,10 +88,11 @@ function Shop() {
       ]);
       setCartCount(cartCount + itemQuantity);
       setCartTotal(cartTotal + productData[dataId - 1].price * itemQuantity);
+      setQuantity('0');
       setModalMessage('Added to cart!');
       setModalDisplay('flex');
       setTimeout(() => {
-        setModalDisplay('none'); 
+        setModalDisplay('none');
       }, 1500);
     }
   }
@@ -98,7 +101,7 @@ function Shop() {
     <>
       {/* <img src={returnIcon} alt='' id='return-icon'/> */}
       <div className='card-div'>
-        <div className="message-modal" style={{display: `${modalDisplay}`}}>
+        <div className='message-modal' style={{ display: `${modalDisplay}` }}>
           <p>{modalMessage}</p>
         </div>
 
@@ -118,6 +121,8 @@ function Shop() {
                 description={item.description}
                 price={item.price}
                 addToCart={addToCart}
+                quantity={`${quantity}`}
+                setQuantity={setQuantity}
               />
             );
           })
