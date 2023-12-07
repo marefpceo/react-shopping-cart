@@ -5,7 +5,7 @@ import downIcon from '../../assets/chevron-down-solid.png';
 import '../Cart/Cart.css';
 import { useOutletContext } from 'react-router-dom';
 import uniqid from 'uniqid';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Cart() {
   const { cartList, setCartList } = useOutletContext([]);
@@ -52,11 +52,8 @@ function Cart() {
         }),
       );
     }
-    let tempCartCount = cartList.reduce((a, b) => a + b.quantity, 0);
-    setCartCount(tempCartCount);
+
     setIsShown(false);
-    console.log(cartCount);
-    console.log(tempCartCount);
   }
 
   function removeCartItem() {
@@ -65,13 +62,15 @@ function Cart() {
     setIsShown(false);
   }
 
-  // function updateCartCount() {
-  //   const quantitySum = cartList.reduce((a, b) => a + b.quantity, 0);
-    
-  //   setCartCount(quantitySum);
-  //   console.log(cartCount);
-  //   console.log(quantitySum);
-  // }
+  useEffect(() => {
+    function updateCartCount() {
+      const quantitySum = cartList.reduce((a, b) => a + b.quantity, 0);
+
+      setCartCount(quantitySum);
+    }
+
+    updateCartCount();
+  }, [cartCount, cartList, setCartCount]);
 
   return (
     <>
