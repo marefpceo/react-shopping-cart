@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
-// import returnIcon from '../../assets/square-caret-up-solid.png';
+import returnIcon from '../../assets/square-caret-up-solid.png';
 import '../Shop/Shop.css';
 import { useOutletContext } from 'react-router-dom';
 
@@ -11,6 +11,7 @@ function Shop() {
   const [modalDisplay, setModalDisplay] = useState('none');
   const [modalMessage, setModalMessage] = useState('Added to Cart!');
   const [quantity, setQuantity] = useState('0');
+  const [showReturn, setShowReturn] = useState(0);
   const { cartList } = useOutletContext([]);
   const { setCartList } = useOutletContext();
   const { cartTotal } = useOutletContext();
@@ -18,6 +19,15 @@ function Shop() {
   const { cartCount, setCartCount } = useOutletContext();
 
   useEffect(() => {
+
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 100) {
+        setShowReturn(1);
+      } else {
+        setShowReturn(0);
+      }   
+    });
+    
     async function getData() {
       try {
         const response = await fetch('https://dummyjson.com/products?limit=10');
@@ -97,9 +107,13 @@ function Shop() {
     }
   }
 
+  function handleScrollToTop() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
   return (
     <>
-      {/* <img src={returnIcon} alt='' id='return-icon'/> */}
+      <img src={returnIcon} alt='' id='return-icon' style={{opacity: `${showReturn}`}} onClick={handleScrollToTop}/>
       <div className='card-div'>
         <div className='message-modal' style={{ display: `${modalDisplay}` }}>
           <p>{modalMessage}</p>
