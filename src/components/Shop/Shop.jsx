@@ -101,6 +101,7 @@ function Shop() {
       setQuantity('0');
       setModalMessage('Added to cart!');
       setModalDisplay('flex');
+      handleScrollToTop();
       setTimeout(() => {
         setModalDisplay('none');
       }, 1500);
