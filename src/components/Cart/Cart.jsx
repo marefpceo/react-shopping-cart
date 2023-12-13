@@ -12,15 +12,22 @@ function Cart() {
   const { cartTotal, setCartTotal } = useOutletContext();
   const { cartCount, setCartCount } = useOutletContext();
   const [isShown, setIsShown] = useState(false);
+  const [originalQuantity, setOriginalQuantity] = useState(0);
   const [updatedQuantity, setUpdatedQuantity] = useState(0);
   const [cartItemIndex, setCartItemIndex] = useState(0);
+  const [currentId, setCurrentId] = useState(0);
 
   function editCartItem(e) {
     const cartItemId = e.target.parentElement.parentElement.id;
+    setCurrentId(Number(cartItemId));
+    setOriginalQuantity(
+      cartList[cartList.findIndex((item) => item.id === Number(cartItemId))]
+        .quantity,
+    )
     setUpdatedQuantity(
       cartList[cartList.findIndex((item) => item.id === Number(cartItemId))]
         .quantity,
-    );
+    )
     setCartItemIndex(
       cartList.findIndex((item) => item.id === Number(cartItemId)),
     );
@@ -33,12 +40,13 @@ function Cart() {
 
   function updateCartItem() {
     let cartTempTotal = cartTotal - cartList[cartItemIndex].itemTotal;
-    if (updatedQuantity === 0) {
-      setCartList(cartList.filter((item) => item.id !== cartItemIndex + 1));
+    if (updatedQuantity === originalQuantity) {
+      setIsShown(false);
+      return;
     } else {
       setCartList(
         cartList.map((item) => {
-          if (item.id === cartItemIndex + 1) {
+          if (item.id === currentId) {
             const update = {
               ...item,
               quantity: updatedQuantity,
@@ -52,20 +60,18 @@ function Cart() {
         }),
       );
     }
-
     setIsShown(false);
   }
 
   function removeCartItem() {
     setCartTotal(cartTotal - cartList[cartItemIndex].itemTotal);
-    setCartList(cartList.filter((item) => item.id !== cartItemIndex + 1));
+    setCartList(cartList.filter((item) => item.id !== currentId));
     setIsShown(false);
   }
 
   useEffect(() => {
     function updateCartCount() {
       const quantitySum = cartList.reduce((a, b) => a + b.quantity, 0);
-
       setCartCount(quantitySum);
     }
 
