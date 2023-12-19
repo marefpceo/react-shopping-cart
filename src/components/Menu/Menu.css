@@ -25,6 +25,11 @@ aside {
   position: absolute;
 }
 
+.menu-container a {
+  text-decoration: none;
+  color: black;
+}
+
 .menu-container h2 {
   text-align: center;
   margin: 0;
