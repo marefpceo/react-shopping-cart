@@ -17,6 +17,8 @@ function Shop() {
   const { cartTotal } = useOutletContext();
   const { setCartTotal } = useOutletContext();
   const { cartCount, setCartCount } = useOutletContext();
+  const { category } = useOutletContext();
+  // const { updateCategory } = useOutletContext();
 
   useEffect(() => {
 
@@ -30,7 +32,7 @@ function Shop() {
     
     async function getData() {
       try {
-        const response = await fetch('https://dummyjson.com/products?limit=10');
+        const response = await fetch('https://dummyjson.com/products');
         let responseData = await response.json();
 
         setProductData(responseData.products);
@@ -43,7 +45,7 @@ function Shop() {
       }
     }
     getData();
-  }, []);
+  }, [category]);
 
   function addToCart(e) {
     const cardId = e.target.parentElement.parentElement.parentElement.id;
@@ -125,22 +127,43 @@ function Shop() {
         ) : loading ? (
           <p>Loading...</p>
         ) : (
-          productData.map((item) => {
-            return (
-              <Card
-                key={item.id}
-                id={`card-${item.id}`}
-                thumbnail={item.thumbnail}
-                brand={item.brand}
-                title={item.title}
-                description={item.description}
-                price={item.price}
-                addToCart={addToCart}
-                quantity={`${quantity}`}
-                setQuantity={setQuantity}
-              />
-            );
-          })
+          category === '' ?
+          (productData.map((item) => {
+              return (
+                <Card
+                  key={item.id}
+                  id={`card-${item.id}`}
+                  thumbnail={item.thumbnail}
+                  brand={item.brand}
+                  title={item.title}
+                  description={item.description}
+                  price={item.price}
+                  addToCart={addToCart}
+                  quantity={`${quantity}`}
+                  setQuantity={setQuantity}
+                />
+              );
+              })
+            ) : (
+              productData.map((item) => {
+                if (item.category === `${category}`) {
+                return (
+                  <Card
+                    key={item.id}
+                    id={`card-${item.id}`}
+                    thumbnail={item.thumbnail}
+                    brand={item.brand}
+                    title={item.title}
+                    description={item.description}
+                    price={item.price}
+                    addToCart={addToCart}
+                    quantity={`${quantity}`}
+                    setQuantity={setQuantity}
+                  />
+                );
+                }
+              })
+            )
         )}
       </div>
     </>

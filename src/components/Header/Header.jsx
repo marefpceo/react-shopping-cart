@@ -6,7 +6,7 @@ import menuIcon from '../../assets/bars-solid.png';
 import '../Header/Header.css';
 import { Link } from 'react-router-dom';
 
-function Header({ cartCount }) {
+function Header({ cartCount, updateCategory }) {
   const [displayState, setDisplayState] = useState('-600px');
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -26,7 +26,11 @@ function Header({ cartCount }) {
 
   return (
     <header>
-      <Menu displayState={displayState} handleClick={handleClick} />
+      <Menu 
+        displayState={displayState} 
+        handleClick={handleClick} 
+        updateCategory={updateCategory}
+      />
       <div className='logo-nav-div'>
         <div className='logo'>
           <img src={menuIcon} alt='' onClick={handleClick} />
@@ -43,6 +47,7 @@ function Header({ cartCount }) {
 
 Header.propTypes = {
   cartCount: PropTypes.number,
+  updateCategory: PropTypes.func
 }
 
 export default Header;
