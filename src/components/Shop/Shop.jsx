@@ -18,7 +18,7 @@ function Shop() {
   const { setCartTotal } = useOutletContext();
   const { cartCount, setCartCount } = useOutletContext();
   const { category } = useOutletContext();
-  // const { updateCategory } = useOutletContext();
+  const { updateCategory } = useOutletContext();
 
   useEffect(() => {
 
@@ -114,8 +114,23 @@ function Shop() {
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
 
+  function handleCategoryChange() {
+    const catInput = document.getElementById('cat').value;
+    updateCategory(catInput);
+  }
+
   return (
     <>
+      <select name='category' id='cat' onChange={handleCategoryChange}>
+        <option value="">All Products</option>
+        <option value='smartphones'>Smart Phones</option>
+        <option value="laptops">Laptops</option>
+        <option value="fragrances">Fragrances</option>
+        <option value="skincare">Skin Care</option>
+        <option value="groceries">Groceries</option>
+        <option value="home-decoration">Home Decor</option>
+      </select>
+
       <img src={returnIcon} alt='' id='return-icon' style={{opacity: `${showReturn}`}} onClick={handleScrollToTop}/>
       <div className='card-div'>
         <div className='message-modal' style={{ display: `${modalDisplay}` }}>
@@ -123,48 +138,49 @@ function Shop() {
         </div>
 
         {error ? (
-          <p>A network error has occured</p>
-        ) : loading ? (
-          <p>Loading...</p>
-        ) : (
-          category === '' ?
-          (productData.map((item) => {
-              return (
-                <Card
-                  key={item.id}
-                  id={`card-${item.id}`}
-                  thumbnail={item.thumbnail}
-                  brand={item.brand}
-                  title={item.title}
-                  description={item.description}
-                  price={item.price}
-                  addToCart={addToCart}
-                  quantity={`${quantity}`}
-                  setQuantity={setQuantity}
-                />
-              );
-              })
-            ) : (
-              productData.map((item) => {
-                if (item.category === `${category}`) {
-                return (
-                  <Card
-                    key={item.id}
-                    id={`card-${item.id}`}
-                    thumbnail={item.thumbnail}
-                    brand={item.brand}
-                    title={item.title}
-                    description={item.description}
-                    price={item.price}
-                    addToCart={addToCart}
-                    quantity={`${quantity}`}
-                    setQuantity={setQuantity}
-                  />
-                );
-                }
-              })
-            )
-        )}
+            <p>A network error has occured</p>
+          ) : loading ? (
+            <p>Loading...</p>
+          ) : (
+            category === '' ?
+              (productData.map((item) => {
+                  return (
+                    <Card
+                      key={item.id}
+                      id={`card-${item.id}`}
+                      thumbnail={item.thumbnail}
+                      brand={item.brand}
+                      title={item.title}
+                      description={item.description}
+                      price={item.price}
+                      addToCart={addToCart}
+                      quantity={`${quantity}`}
+                      setQuantity={setQuantity}
+                    />
+                    );
+                })
+              ) : (
+                productData.map((item) => {
+                  if (item.category === `${category}`) {
+                    return (
+                      <Card
+                        key={item.id}
+                        id={`card-${item.id}`}
+                        thumbnail={item.thumbnail}
+                        brand={item.brand}
+                        title={item.title}
+                        description={item.description}
+                        price={item.price}
+                        addToCart={addToCart}
+                        quantity={`${quantity}`}
+                        setQuantity={setQuantity}
+                      />
+                    );
+                  }
+                })
+              )
+          )
+        }
       </div>
     </>
   );

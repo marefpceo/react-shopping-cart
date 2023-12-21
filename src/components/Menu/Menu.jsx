@@ -34,27 +34,42 @@ function Menu({ displayState, handleClick, updateCategory }) {
             </Link>
           </li>
           <li>
-            <Link to={'/shop'} onClick={()=> displayCategory('laptops')}>
+            <Link 
+              to={'/shop'} 
+              onClick={()=> displayCategory('laptops')}
+            >
               <p>Laptops</p>
             </Link>
           </li>
           <li>
-            <Link to={'/shop'} onClick={()=> displayCategory('fragrances')}>
+            <Link 
+              to={'/shop'} 
+              onClick={()=> displayCategory('fragrances')}
+            >
               <p>Fragrances</p>
             </Link>
           </li>
           <li>
-            <Link to={'/shop'} onClick={()=> displayCategory('skincare')}>
+            <Link 
+              to={'/shop'} 
+              onClick={()=> displayCategory('skincare')}
+            >
               <p>Skin Care</p>
             </Link>
           </li>
           <li>
-            <Link to={'/shop'} onClick={()=> displayCategory('groceries')}>
+            <Link 
+              to={'/shop'} 
+              onClick={()=> displayCategory('groceries')}
+            >
               <p>Groceries</p>
             </Link>
           </li>
           <li>
-            <Link to={'/shop'} onClick={()=> displayCategory('home-decoration')}>
+            <Link 
+              to={'/shop'} 
+              onClick={()=> displayCategory('home-decoration')}
+            >
               <p>Home Decor</p>
             </Link>
           </li>
