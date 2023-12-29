@@ -3,20 +3,19 @@ import PropTypes from 'prop-types';
 import '../Menu/Menu.css';
 import { Link } from 'react-router-dom';
 
-function Menu({ displayState, handleClick, updateCategory }) {
-
+function Menu({ displayState, showMenu, handleClick, updateCategory }) {
   function displayCategory(categoryName) {
     updateCategory(categoryName);
     handleClick();
   }
 
   return (
-    <aside style={{ marginLeft: displayState }}>
-      <div className='menu-container'>
+    <aside style={{ width: displayState }}>
+      <div className='menu-container' style={{ opacity: showMenu }}>
         <Link to={'/'} onClick={handleClick}>
           <h2>Home</h2>
         </Link>
-        <Link to={'/shop'} onClick={()=> displayCategory('')}>
+        <Link to={'/shop'} onClick={() => displayCategory('')}>
           <h2>Shop</h2>
         </Link>
         <Link to={'/cart'} onClick={handleClick}>
@@ -27,48 +26,34 @@ function Menu({ displayState, handleClick, updateCategory }) {
         <hr />
         <ul className='menu'>
           <li>
-            <Link 
-              to={'/shop'} 
-              onClick={()=> displayCategory('smartphones')}>
+            <Link to={'/shop'} onClick={() => displayCategory('smartphones')}>
               <p>Smart Phones</p>
             </Link>
           </li>
           <li>
-            <Link 
-              to={'/shop'} 
-              onClick={()=> displayCategory('laptops')}
-            >
+            <Link to={'/shop'} onClick={() => displayCategory('laptops')}>
               <p>Laptops</p>
             </Link>
           </li>
           <li>
-            <Link 
-              to={'/shop'} 
-              onClick={()=> displayCategory('fragrances')}
-            >
+            <Link to={'/shop'} onClick={() => displayCategory('fragrances')}>
               <p>Fragrances</p>
             </Link>
           </li>
           <li>
-            <Link 
-              to={'/shop'} 
-              onClick={()=> displayCategory('skincare')}
-            >
+            <Link to={'/shop'} onClick={() => displayCategory('skincare')}>
               <p>Skin Care</p>
             </Link>
           </li>
           <li>
-            <Link 
-              to={'/shop'} 
-              onClick={()=> displayCategory('groceries')}
-            >
+            <Link to={'/shop'} onClick={() => displayCategory('groceries')}>
               <p>Groceries</p>
             </Link>
           </li>
           <li>
-            <Link 
-              to={'/shop'} 
-              onClick={()=> displayCategory('home-decoration')}
+            <Link
+              to={'/shop'}
+              onClick={() => displayCategory('home-decoration')}
             >
               <p>Home Decor</p>
             </Link>
@@ -82,8 +67,9 @@ function Menu({ displayState, handleClick, updateCategory }) {
 
 Menu.propTypes = {
   displayState: PropTypes.string,
+  showMenu: PropTypes.string,
   handleClick: PropTypes.func,
-  updateCategory: PropTypes.func
+  updateCategory: PropTypes.func,
 };
 
 export default Menu;

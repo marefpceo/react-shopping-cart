@@ -26,3 +26,9 @@
 #shop-button {
   margin-top: 3rem;
 }
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .main-image img {
+    height: 100%;
+  }
+}

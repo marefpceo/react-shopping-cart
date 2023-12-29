@@ -4,6 +4,7 @@
   align-items: center;
   flex-grow: 1;
   flex-wrap: wrap;
+  position: relative;
 }
 
 #return-icon {
@@ -25,11 +26,21 @@
   z-index: 30;
   border: 1px solid #f9f9f9;
   border-radius: 5px;
-  background-color: #f9f9f9FA;
+  background-color: #f9f9f9fa;
   box-shadow: 0 0 8px 1px #686868;
 }
 
 .message-modal p {
   margin: 10%;
   text-align: center;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .card-div {
+    padding-left: 25px;
+  }
+
+  #return-icon {
+    top: 40%;
+  }
 }

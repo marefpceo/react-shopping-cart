@@ -21,15 +21,14 @@ function Shop() {
   const { updateCategory } = useOutletContext();
 
   useEffect(() => {
-
     window.addEventListener('scroll', () => {
-      if(window.scrollY > 100) {
+      if (window.scrollY > 100) {
         setShowReturn(1);
       } else {
         setShowReturn(0);
-      }   
+      }
     });
-    
+
     async function getData() {
       try {
         const response = await fetch('https://dummyjson.com/products');
@@ -111,7 +110,7 @@ function Shop() {
   }
 
   function handleScrollToTop() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function handleCategoryChange() {
@@ -122,65 +121,68 @@ function Shop() {
   return (
     <>
       <select name='category' id='cat' onChange={handleCategoryChange}>
-        <option value="">All Products</option>
+        <option value=''>All Products</option>
         <option value='smartphones'>Smart Phones</option>
-        <option value="laptops">Laptops</option>
-        <option value="fragrances">Fragrances</option>
-        <option value="skincare">Skin Care</option>
-        <option value="groceries">Groceries</option>
-        <option value="home-decoration">Home Decor</option>
+        <option value='laptops'>Laptops</option>
+        <option value='fragrances'>Fragrances</option>
+        <option value='skincare'>Skin Care</option>
+        <option value='groceries'>Groceries</option>
+        <option value='home-decoration'>Home Decor</option>
       </select>
 
-      <img src={returnIcon} alt='' id='return-icon' style={{opacity: `${showReturn}`}} onClick={handleScrollToTop}/>
       <div className='card-div'>
+        <img
+          src={returnIcon}
+          alt=''
+          id='return-icon'
+          style={{ opacity: `${showReturn}` }}
+          onClick={handleScrollToTop}
+        />
         <div className='message-modal' style={{ display: `${modalDisplay}` }}>
           <p>{modalMessage}</p>
         </div>
 
         {error ? (
-            <p>A network error has occured</p>
-          ) : loading ? (
-            <p>Loading...</p>
-          ) : (
-            category === '' ?
-              (productData.map((item) => {
-                  return (
-                    <Card
-                      key={item.id}
-                      id={`card-${item.id}`}
-                      thumbnail={item.thumbnail}
-                      brand={item.brand}
-                      title={item.title}
-                      description={item.description}
-                      price={item.price}
-                      addToCart={addToCart}
-                      quantity={`${quantity}`}
-                      setQuantity={setQuantity}
-                    />
-                    );
-                })
-              ) : (
-                productData.map((item) => {
-                  if (item.category === `${category}`) {
-                    return (
-                      <Card
-                        key={item.id}
-                        id={`card-${item.id}`}
-                        thumbnail={item.thumbnail}
-                        brand={item.brand}
-                        title={item.title}
-                        description={item.description}
-                        price={item.price}
-                        addToCart={addToCart}
-                        quantity={`${quantity}`}
-                        setQuantity={setQuantity}
-                      />
-                    );
-                  }
-                })
-              )
-          )
-        }
+          <p>A network error has occured</p>
+        ) : loading ? (
+          <p>Loading...</p>
+        ) : category === '' ? (
+          productData.map((item) => {
+            return (
+              <Card
+                key={item.id}
+                id={`card-${item.id}`}
+                thumbnail={item.thumbnail}
+                brand={item.brand}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+                addToCart={addToCart}
+                quantity={`${quantity}`}
+                setQuantity={setQuantity}
+              />
+            );
+          })
+        ) : (
+          productData.map((item) => {
+            if (item.category === `${category}`) {
+              return (
+                <Card
+                  key={item.id}
+                  id={`card-${item.id}`}
+                  thumbnail={item.thumbnail}
+                  brand={item.brand}
+                  title={item.title}
+                  description={item.description}
+                  price={item.price}
+                  addToCart={addToCart}
+                  quantity={`${quantity}`}
+                  setQuantity={setQuantity}
+                />
+              );
+            }
+          })
+        )}
       </div>
     </>
   );
