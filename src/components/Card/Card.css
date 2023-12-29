@@ -86,3 +86,9 @@ input[type='number'] {
 #add-to-cart-btn:active {
   transform: scale(0.9);
 }
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .card {
+    max-width: 175px;
+  }
+}

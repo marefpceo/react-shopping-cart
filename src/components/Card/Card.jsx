@@ -3,7 +3,7 @@ import Button from '../Button/Button';
 import upIcon from '../../assets/chevron-up-solid.png';
 import downIcon from '../../assets/chevron-down-solid.png';
 import '../Card/Card.css';
-// import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Card({
   thumbnail,
@@ -13,18 +13,20 @@ function Card({
   id,
   addToCart,
   quantity,
-  setQuantity,
 }) {
-  // const [quantity, setQuantity] = useState('0');
-  const quantityAsNumber = Number(quantity);
+  const [quantityAsNumber, setQuantityAsNumber] = useState(Number(quantity));
+
+  useEffect(() => {
+    setQuantityAsNumber(0);
+  }, [addToCart]);
 
   function handleAddQuantity() {
-    setQuantity(quantityAsNumber + 1);
+    setQuantityAsNumber(quantityAsNumber + 1);
   }
 
   function handleSubtractQuantity() {
-    if (quantity > 0) {
-      setQuantity(quantityAsNumber - 1);
+    if (quantityAsNumber > 0) {
+      setQuantityAsNumber(quantityAsNumber - 1);
     } else {
       return;
     }
@@ -32,7 +34,7 @@ function Card({
 
   function handleChange(e) {
     let value = e.target.value;
-    setQuantity(value);
+    setQuantityAsNumber(value);
   }
 
   return (
@@ -69,7 +71,7 @@ function Card({
               id='amount-input'
               min={'0'}
               max={'99'}
-              value={quantity}
+              value={quantityAsNumber}
               onChange={handleChange}
             />
             <Button
@@ -111,7 +113,6 @@ Card.propTypes = {
   addToCart: PropTypes.func,
   handleChange: PropTypes.func,
   quantity: PropTypes.string,
-  setQuantity: PropTypes.func,
 };
 
 export default Card;

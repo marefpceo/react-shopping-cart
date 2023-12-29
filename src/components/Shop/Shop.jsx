@@ -120,17 +120,16 @@ function Shop() {
 
   return (
     <>
-      <select name='category' id='cat' onChange={handleCategoryChange}>
-        <option value=''>All Products</option>
-        <option value='smartphones'>Smart Phones</option>
-        <option value='laptops'>Laptops</option>
-        <option value='fragrances'>Fragrances</option>
-        <option value='skincare'>Skin Care</option>
-        <option value='groceries'>Groceries</option>
-        <option value='home-decoration'>Home Decor</option>
-      </select>
-
       <div className='card-div'>
+        <select name='category' id='cat' onChange={handleCategoryChange}>
+          <option value=''>All Products</option>
+          <option value='smartphones'>Smart Phones</option>
+          <option value='laptops'>Laptops</option>
+          <option value='fragrances'>Fragrances</option>
+          <option value='skincare'>Skin Care</option>
+          <option value='groceries'>Groceries</option>
+          <option value='home-decoration'>Home Decor</option>
+        </select>
         <img
           src={returnIcon}
           alt=''

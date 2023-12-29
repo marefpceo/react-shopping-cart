@@ -1,3 +1,11 @@
+#cat {
+  margin: 0.8rem auto;
+  width: 75%;
+  position: sticky;
+  z-index: 10;
+  top: 15%;
+}
+
 .card-div {
   display: flex;
   justify-content: center;
@@ -37,7 +45,7 @@
 
 @media only screen and (min-width: 481px) and (max-width: 768px) {
   .card-div {
-    padding-left: 25px;
+    padding-left: 45px;
   }
 
   #return-icon {

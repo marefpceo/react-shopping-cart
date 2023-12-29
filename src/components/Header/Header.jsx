@@ -8,19 +8,19 @@ import { Link } from 'react-router-dom';
 
 function Header({ cartCount, updateCategory }) {
   const [displayState, setDisplayState] = useState('0%');
-  const [showMenu, setShowMenu] = useState(0);
+  const [showMenu, setShowMenu] = useState('0');
   const [scrollPosition, setScrollPosition] = useState(0);
 
   function handleClick() {
     if (displayState === '0%') {
       setDisplayState('100%');
-      setShowMenu(1);
+      setShowMenu('1');
       setScrollPosition(document.body.style.top);
       document.body.style.position = 'fixed';
       document.body.style.top = `${scrollPosition}`;
     } else {
       setDisplayState('0%');
-      setShowMenu(0);
+      setShowMenu('0');
       document.body.style.position = '';
       document.body.style.top = '';
       window.scrollTo(0, parseInt(scrollPosition || '0') * -1);

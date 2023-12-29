@@ -23,11 +23,11 @@ function Cart() {
     setOriginalQuantity(
       cartList[cartList.findIndex((item) => item.id === Number(cartItemId))]
         .quantity,
-    )
+    );
     setUpdatedQuantity(
       cartList[cartList.findIndex((item) => item.id === Number(cartItemId))]
         .quantity,
-    )
+    );
     setCartItemIndex(
       cartList.findIndex((item) => item.id === Number(cartItemId)),
     );
@@ -43,6 +43,8 @@ function Cart() {
     if (updatedQuantity === originalQuantity) {
       setIsShown(false);
       return;
+    } else if (updatedQuantity === 0) {
+      removeCartItem();
     } else {
       setCartList(
         cartList.map((item) => {
