@@ -114,14 +114,15 @@ function Shop() {
   }
 
   function handleCategoryChange() {
-    const catInput = document.getElementById('cat').value;
+    const catInput = document.getElementById('cat-list').value;
     updateCategory(catInput);
+    handleScrollToTop();
   }
 
   return (
     <>
       <div className='card-div'>
-        <select name='category' id='cat' onChange={handleCategoryChange}>
+        <select name='category' id='cat-list' onChange={handleCategoryChange}>
           <option value=''>All Products</option>
           <option value='smartphones'>Smart Phones</option>
           <option value='laptops'>Laptops</option>

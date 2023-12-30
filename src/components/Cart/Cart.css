@@ -80,16 +80,20 @@
   justify-content: space-between;
 }
 
+.item-header-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .cart-img {
   max-width: 75px;
-  height: 100%;
 }
 
 .trash-btn {
   max-width: 20px;
-  position: absolute;
-  left: 3%;
-  bottom: 30%;
+  margin-top: 10px;
+  z-index: 5px;
 }
 
 .cart-item-description {
@@ -135,4 +139,11 @@
 
 .cart-options button:active {
   transform: scale(0.9);
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .cart-item,
+  .cart-total {
+    padding: 0 1rem;
+  }
 }

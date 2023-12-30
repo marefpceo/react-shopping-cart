@@ -18,7 +18,7 @@ function Cart() {
   const [currentId, setCurrentId] = useState(0);
 
   function editCartItem(e) {
-    const cartItemId = e.target.parentElement.parentElement.id;
+    const cartItemId = e.target.parentElement.parentElement.parentElement.id;
     setCurrentId(Number(cartItemId));
     setOriginalQuantity(
       cartList[cartList.findIndex((item) => item.id === Number(cartItemId))]
@@ -163,13 +163,15 @@ function Cart() {
             return (
               <div className='cart-item' id={item.id} key={uniqid()}>
                 <div className='cart-item-header' key={uniqid()}>
-                  <img src={item.thumbnail} alt='' className='cart-img' />
-                  <img
-                    src={trashCanIcon}
-                    alt='Delete entry'
-                    className='trash-btn'
-                    onClick={editCartItem}
-                  />
+                  <div className='item-header-left'>
+                    <img src={item.thumbnail} alt='' className='cart-img' />
+                    <img
+                      src={trashCanIcon}
+                      alt='Delete entry'
+                      className='trash-btn'
+                      onClick={editCartItem}
+                    />
+                  </div>
                   <div className='cart-item-description' key={uniqid()}>
                     <h3>{item.title}</h3>
                     <p>{item.description}</p>
