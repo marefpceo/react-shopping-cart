@@ -43,3 +43,9 @@ aside {
   right: 28%;
   top: 2%;
 }
+
+@media only screen and (min-width: 769px) {
+  aside {
+    display: none;
+  }
+}

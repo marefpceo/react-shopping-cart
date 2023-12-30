@@ -1,5 +1,5 @@
 header {
-  padding: 1rem;
+  padding: 0 1rem;
   border-bottom: 1px solid #00000022;
   position: sticky;
   top: 0;
@@ -35,4 +35,49 @@ h1 {
 
 .nav-icons {
   width: 40%;
+}
+
+.menu-lg {
+  display: none;
+  width: 80%;
+  margin: 0.5rem auto;
+}
+
+.menu-lg a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.menu-lg li {
+  margin: 0;
+  padding: 0;
+  border-radius: 3px;
+}
+
+.menu-lg li:hover {
+  background-color: #686868;
+}
+
+.menu-lg li p {
+  margin: 5px;
+}
+
+.menu-lg li:hover p {
+  color: #f9f9f9;
+}
+
+@media only screen and (min-width: 769px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  #menu-icon {
+    display: none;
+  }
+
+  .menu-lg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
