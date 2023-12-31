@@ -121,6 +121,9 @@ function Shop() {
 
   return (
     <>
+      <div className='current-category'>
+        <p>Currently Viewing: {category}</p>
+      </div>
       <div className='card-div'>
         <select name='category' id='cat-list' onChange={handleCategoryChange}>
           <option value=''>All Products</option>
@@ -138,6 +141,7 @@ function Shop() {
           style={{ opacity: `${showReturn}` }}
           onClick={handleScrollToTop}
         />
+
         <div className='message-modal' style={{ display: `${modalDisplay}` }}>
           <p>{modalMessage}</p>
         </div>

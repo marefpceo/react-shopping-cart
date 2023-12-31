@@ -147,3 +147,37 @@
     padding: 0 1rem;
   }
 }
+
+@media only screen and (min-width: 769px) {
+  h2 {
+    text-align: center;
+  }
+
+  .cart-item {
+    padding: 1rem;
+    width: 70%;
+    margin: 1rem auto;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 0px #686868;
+  }
+
+  .cart-total {
+    justify-content: flex-end;
+    gap: 5%;
+    width: 80%;
+  }
+
+  .item-edit-modal {
+    width: 300px;
+    max-height: 150px;
+    margin: auto;
+    left: 35%;
+  }
+
+  .cart-options {
+    justify-content: center;
+    gap: 25%;
+    width: 40%;
+    margin: 2rem auto;
+  }
+}

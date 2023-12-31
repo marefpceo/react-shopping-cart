@@ -7,11 +7,21 @@ import pinterestIcon from '../../assets/pinterest.png';
 import xIcon from '../../assets/x-twitter.png';
 import youtubeIcon from '../../assets/youtube.png';
 import '../Footer/Footer.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Footer() {
   const [serviceList, setServiceList] = useState('0');
   const [infoList, setInfoList] = useState('0');
+
+  useEffect(() => {
+    if (window.innerWidth > 768) {
+      setServiceList('100%');
+      setInfoList('100%');
+    } else {
+      setServiceList('0');
+      setInfoList('0');
+    }
+  }, []);
 
   function toggleServiceList() {
     if (serviceList === '0') {

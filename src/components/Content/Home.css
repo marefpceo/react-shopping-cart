@@ -32,3 +32,13 @@
     height: 100%;
   }
 }
+
+@media only screen and (min-width: 769px) {
+  .main-content {
+    height: 70vh;
+  }
+
+  .main-image img {
+    height: 100%;
+  }
+}

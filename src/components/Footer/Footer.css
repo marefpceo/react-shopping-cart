@@ -102,3 +102,22 @@ footer hr {
   max-width: 30px;
   height: 100%;
 }
+
+@media only screen and (min-width: 769px) {
+  hr {
+    display: none;
+  }
+
+  footer {
+    display: flex;
+  }
+
+  .footer-links img {
+    display: none;
+  }
+
+  .customer-service-list,
+  .store-info-list {
+    height: 100px;
+  }
+}
