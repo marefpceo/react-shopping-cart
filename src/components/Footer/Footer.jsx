@@ -13,6 +13,8 @@ function Footer() {
   const [serviceList, setServiceList] = useState('0');
   const [infoList, setInfoList] = useState('0');
 
+  console.log('test');
+
   useEffect(() => {
     if (window.innerWidth > 768) {
       setServiceList('100%');
