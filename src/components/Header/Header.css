@@ -1,6 +1,7 @@
 header {
   padding: 0 1rem;
   border-bottom: 1px solid #00000022;
+  box-shadow: 0 15px 10px -15px #686868;
   position: sticky;
   top: 0;
   z-index: 10;

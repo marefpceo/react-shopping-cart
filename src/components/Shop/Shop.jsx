@@ -3,6 +3,7 @@ import Card from '../Card/Card';
 import returnIcon from '../../assets/square-caret-up-solid.png';
 import '../Shop/Shop.css';
 import { useOutletContext } from 'react-router-dom';
+import Button from '../Button/Button';
 
 function Shop() {
   const [productData, setProductData] = useState([]);
@@ -121,9 +122,26 @@ function Shop() {
 
   return (
     <>
-      <div className='current-category'>
-        <p>Currently Viewing: {category}</p>
-      </div>
+      {category === '' ? null : (
+        <Button
+          id={'clear-category'}
+          buttonType={'button'}
+          text={'Show All Products'}
+          style={{
+            backgroundColor: 'green',
+            color: '#f9f9f9',
+            fontWeight: 'bold',
+            border: 'none',
+            boxShadow: '0 20px 5px -17px #686868',
+            borderRadius: '4px',
+            width: '10%',
+            height: '40px',
+            margin: '15px auto',
+          }}
+          handleClick={() => updateCategory('')}
+        />
+      )}
+
       <div className='card-div'>
         <select name='category' id='cat-list' onChange={handleCategoryChange}>
           <option value=''>All Products</option>
