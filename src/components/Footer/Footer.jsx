@@ -10,9 +10,13 @@ import '../Footer/Footer.css';
 import { useEffect, useState } from 'react';
 
 function Footer() {
-  const [serviceList, setServiceList] = useState('0');
-  const [infoList, setInfoList] = useState('0');
-  const [screenWidth, setScreenWidth] = useState('0');
+  const [serviceList, setServiceList] = useState(
+    window.innerWidth > 768 ? '100%' : '0',
+  );
+  const [infoList, setInfoList] = useState(
+    window.innerWidth > 768 ? '100%' : '0',
+  );
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   function handleScreenChange() {
     setScreenWidth(window.innerWidth);
