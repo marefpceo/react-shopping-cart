@@ -10,8 +10,8 @@ import '../Footer/Footer.css';
 import { useEffect, useState } from 'react';
 
 function Footer() {
-  const [serviceList, setServiceList] = useState('100%');
-  const [infoList, setInfoList] = useState('100%');
+  const [serviceList, setServiceList] = useState('0');
+  const [infoList, setInfoList] = useState('0');
   const [screenWidth, setScreenWidth] = useState('0');
 
   function handleScreenChange() {
@@ -21,28 +21,13 @@ function Footer() {
   useEffect(() => {
     window.addEventListener('resize', handleScreenChange);
 
-    if (screenWidth > 768) {
-      if (serviceList === '0' || infoList === '0') {
-        setServiceList('100%');
-        setInfoList('100%');
-      } else {
-        return;
-      }
-    }
-
-    if (screenWidth < 769) {
-      if (serviceList === '100%' || infoList === '100%') {
-        setServiceList('0');
-        setInfoList('0');
-      } else {
-        return;
-      }
-    }
+    setServiceList(screenWidth > 768 ? '100%' : '0');
+    setInfoList(screenWidth > 768 ? '100%' : '0');
 
     return () => {
       window.removeEventListener('resize', handleScreenChange);
     };
-  }, [screenWidth, serviceList, infoList]);
+  }, [screenWidth]);
 
   function toggleServiceList() {
     if (serviceList === '0') {
