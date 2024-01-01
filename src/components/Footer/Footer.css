@@ -11,7 +11,9 @@ footer hr {
 }
 
 .footer-links {
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 85%;
   margin: 0 auto;
 }
@@ -110,6 +112,17 @@ footer hr {
 
   footer {
     display: flex;
+    align-items: flex-start;
+    padding: 3% 5%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-links div {
+    padding-top: 0;
   }
 
   .footer-links img {
@@ -118,6 +131,12 @@ footer hr {
 
   .customer-service-list,
   .store-info-list {
-    height: 100px;
+    padding-left: 5px;
+  }
+
+  .footer-contact {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
   }
 }

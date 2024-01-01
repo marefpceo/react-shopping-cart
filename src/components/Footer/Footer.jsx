@@ -10,18 +10,39 @@ import '../Footer/Footer.css';
 import { useEffect, useState } from 'react';
 
 function Footer() {
-  const [serviceList, setServiceList] = useState('0');
-  const [infoList, setInfoList] = useState('0');
+  const [serviceList, setServiceList] = useState('100%');
+  const [infoList, setInfoList] = useState('100%');
+  const [screenWidth, setScreenWidth] = useState('0');
+
+  function handleScreenChange() {
+    setScreenWidth(window.innerWidth);
+  }
 
   useEffect(() => {
-    if (window.innerWidth > 768) {
-      setServiceList('100%');
-      setInfoList('100%');
-    } else {
-      setServiceList('0');
-      setInfoList('0');
+    window.addEventListener('resize', handleScreenChange);
+
+    if (screenWidth > 768) {
+      if (serviceList === '0' || infoList === '0') {
+        setServiceList('100%');
+        setInfoList('100%');
+      } else {
+        return;
+      }
     }
-  }, []);
+
+    if (screenWidth < 769) {
+      if (serviceList === '100%' || infoList === '100%') {
+        setServiceList('0');
+        setInfoList('0');
+      } else {
+        return;
+      }
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleScreenChange);
+    };
+  }, [screenWidth, serviceList, infoList]);
 
   function toggleServiceList() {
     if (serviceList === '0') {
@@ -110,44 +131,52 @@ function Footer() {
         </ul>
       </div>
       <hr />
-      <div className='email-signup'>
-        <label>Sign up for email updates</label>
-
-        <div className='updates-div'>
-          <input type='text' name='updates' id='updates-input' />
-
-          <Button
-            type={'submit'}
-            text={'Submit'}
-            style={{
-              backgroundColor: '#f9f9f9',
-              borderRadius: '3px',
-              border: '1px solid #bebebe',
-              boxShadow: '1px 1px 3px #444444',
-              width: '70px',
-            }}
-          />
+      <div className='footer-contact'>
+        <div className='email-signup'>
+          <label>Sign up for email updates</label>
+          <div className='updates-div'>
+            <input type='text' name='updates' id='updates-input' />
+            <Button
+              type={'submit'}
+              text={'Submit'}
+              style={{
+                backgroundColor: '#f9f9f9',
+                borderRadius: '3px',
+                border: '1px solid #bebebe',
+                boxShadow: '1px 1px 3px #444444',
+                width: '70px',
+              }}
+            />
+          </div>
         </div>
-      </div>
-      <hr />
-      <div className='social-media'>
-        <p>Connect with us on social media!</p>
-        <div className='social-media-icons'>
-          <a href='https://www.facebook.com' target='_blank' rel='noreferrer'>
-            <img src={facebookIcon} alt='Facebook' />
-          </a>
-          <a href='https://www.instagram.com' rel='noreferrer' target='_blank'>
-            <img src={instagramIcon} alt='Instagram' />
-          </a>
-          <a href='https://www.pinterest.com ' rel='noreferrer' target='_blank'>
-            <img src={pinterestIcon} alt='Pinterest' />
-          </a>
-          <a href='https://www.twitter.com' rel='noreferrer' target='_blank'>
-            <img src={xIcon} alt='Twitter' />
-          </a>
-          <a href='https://www.youtube.com' rel='noreferrer' target='_blank'>
-            <img src={youtubeIcon} alt='Youtube' />
-          </a>
+        <hr />
+        <div className='social-media'>
+          <p>Connect with us on social media!</p>
+          <div className='social-media-icons'>
+            <a href='https://www.facebook.com' target='_blank' rel='noreferrer'>
+              <img src={facebookIcon} alt='Facebook' />
+            </a>
+            <a
+              href='https://www.instagram.com'
+              rel='noreferrer'
+              target='_blank'
+            >
+              <img src={instagramIcon} alt='Instagram' />
+            </a>
+            <a
+              href='https://www.pinterest.com '
+              rel='noreferrer'
+              target='_blank'
+            >
+              <img src={pinterestIcon} alt='Pinterest' />
+            </a>
+            <a href='https://www.twitter.com' rel='noreferrer' target='_blank'>
+              <img src={xIcon} alt='Twitter' />
+            </a>
+            <a href='https://www.youtube.com' rel='noreferrer' target='_blank'>
+              <img src={youtubeIcon} alt='Youtube' />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

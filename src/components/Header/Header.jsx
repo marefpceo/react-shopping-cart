@@ -12,7 +12,6 @@ function Header({ cartCount, updateCategory }) {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const location = useLocation();
-  console.log(location.pathname);
 
   function handleClick() {
     if (displayState === '0%') {
