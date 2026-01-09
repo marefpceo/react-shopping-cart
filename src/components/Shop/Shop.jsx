@@ -32,6 +32,7 @@ function Shop() {
 
     async function getData() {
       try {
+        // TODO API links broken - update to display a message saying that items are out of stock -  and return them to the previous page.
         const response = await fetch('https://dummyjson.com/products');
         let responseData = await response.json();
 
