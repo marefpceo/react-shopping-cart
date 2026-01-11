@@ -30,6 +30,7 @@ function Shop() {
       }
     });
 
+    // Gets list of products
     async function getData() {
       try {
         // TODO API links broken - update to display a message saying that items are out of stock -  and return them to the previous page.
@@ -166,10 +167,11 @@ function Shop() {
         </div>
 
         {error ? (
-          <p>A network error has occured</p>
+          <p>A network error has occurred</p>
         ) : loading ? (
           <p>Loading...</p>
         ) : category === '' ? (
+          // Shows all items
           productData.map((item) => {
             return (
               <Card
@@ -188,6 +190,7 @@ function Shop() {
           })
         ) : (
           productData.map((item) => {
+            // Shows items in selected category
             if (item.category === `${category}`) {
               return (
                 <Card
