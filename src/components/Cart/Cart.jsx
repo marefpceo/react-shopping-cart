@@ -18,8 +18,6 @@ function Cart() {
   const [currentId, setCurrentId] = useState(0);
 
   function editCartItem(e) {
-    // TODO Items are not being added to the cart - when an item is added, the cart shows the correct number, but when you got to the actual cart, it is empty.
-
     const cartItemId = e.target.parentElement.parentElement.parentElement.id;
     setCurrentId(Number(cartItemId));
     setOriginalQuantity(
@@ -197,7 +195,7 @@ function Cart() {
         ) : (
           <div className='cart-total'>
             <p>Cart Total</p>
-            <p>${cartTotal}</p>
+            <p>${cartTotal.toFixed(2)}</p>
           </div>
         )}
 
