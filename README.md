@@ -6,24 +6,22 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![License][license-shield]][license-url]
+[![MIT License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/marefpceo">
+  <!-- <a href="https://github.com/marefpceo/react-shopping-cart">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+  </a> -->
 
 <h3 align="center">React Shopping Cart</h3>
 
   <p align="center">
-    Mock shopping cart created using React.
-    <br />
     <a href="https://github.com/marefpceo/react-shopping-cart"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/marefpceo/react-shopping-cart">View Demo</a>
+    <a href="https://react-shopping-cart-4ft.pages.dev/">View Demo</a>
     &middot;
     <a href="https://github.com/marefpceo/react-shopping-cart/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
@@ -62,26 +60,44 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<div align='center'>
 
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`, `project_license`
+[![React Shopping Cart Screen Shot][product-screenshot]](https://react-shopping-cart-4ft.pages.dev/)
 
-Be sure to answer the following:
+</div>
 
-- What is this project?
-- What problem does my code solve?
+The **_React Shopping Cart_** is a project that was created while completing The Odin Project's Full Stack Javascript curriculum.
+
+The purpose of this project was to create a simple shopping cart using React to show proficiency in basic concepts. In addition to the basics, this project introduced two new concepts to be utilized. **Routing** and **data fetching**.
+
+Project requirements are as follows:
+
+- Plan component and folder structure
+- Minimum of two pages (a home page and a shop page, which includes shopping cart)
+- Navigate between pages using navigation bar, which will be shown on all pages
+- Include images on homepage (nothing fancy, just enough to test basic concepts)
+- Shopping cart page should display the number of items currently in the cart
+- Build individual card elements for each product
+- Product cards must include:
+  - Input field
+  - Option to manually input quantity
+  - Increment/ decrement buttons to adjust quantity
+  - Product title and description
+  - "Add To Cart" button
+- Fetch shop items from an API
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-- [![Next][Next.js]][Next-url]
-- [![React][React.js]][React-url]
+[![React][React.js]][React-url]
+[![Vite][Vite.js]][vite-url]
+[![CSS][CSS]][css-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
-<!-- Add relavent code samples. Keep the examples short -->
+<!-- Add relevant code samples. Keep the examples short -->
 
 ## Getting Started
 
@@ -210,14 +226,16 @@ Project Link: [https://github.com/marefpceo/react-shopping-cart](https://github.
 [issues-shield]: https://img.shields.io/github/issues/marefpceo/react-shopping-cart.svg?style=for-the-badge
 [issues-url]: https://github.com/marefpceo/react-shopping-cart/issues
 [license-shield]: https://img.shields.io/github/license/marefpceo/react-shopping-cart?style=for-the-badge
-[license-url]: https://github.com/marefpceo/react-shopping-cart/blob/documentation-update/LICENSE
+[license-url]: https://github.com/marefpceo/react-shopping-cart/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: /public/last_stop_shop.webp
 
-<!-- Shields.io badges. You can a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
+<!-- Shields.io badges. You can find a comprehensive list with many more badges at: https://github.com/inttter/md-badges -->
 
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[Vite.js]: https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=ffffff
+[vite-url]: https://vite.dev/
+[CSS]: https://img.shields.io/badge/-CSS-000?style=for-the-badge&logo=CSS
+[css-url]: https://www.w3.org/Style/CSS/Overview.en.html
