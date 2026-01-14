@@ -132,6 +132,8 @@ Verify that you have Node.js and NPM installed.
 
 ### Installation
 
+Once you have verified that you have the prerequisites installed:
+
 1. Open a terminal by pressing `Ctrl+Alt+T`.
 
 2. Clone the repo
@@ -142,24 +144,26 @@ Verify that you have Node.js and NPM installed.
    ```sh
    cd react-shopping-cart
    ```
-4. Install NPM packages
    ```sh
    npm install
    ```
-5. Start the dev server
-   ```js
-   npm run dev
-   ```
-6. Open your web browser and navigate to:
-   ```sh
-   http://localhost:5173/
-   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+  
 <!-- USAGE EXAMPLES -->
 
 ## Usage
+
+After `node_packages` are installed:
+
+1. Start the dev server
+   ```js
+   npm run dev
+   ```
+2. Open your web browser and navigate to:
+   ```sh
+   http://localhost:5173/
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -168,7 +172,7 @@ Verify that you have Node.js and NPM installed.
 
 ## Roadmap
 
-View the [CHANGELOG]() to see all changes including features to expect on the next release.
+View the [CHANGELOG](/CHANGELOG.md) to see all changes including features to expect on the next release.
 
 Also, see the [open issues](https://github.com/marefpceo/react-shopping-cart/issues) for a full list of proposed features (and known issues). If you would like to propose a new feature, see the Contributing section on how to do so.
 
@@ -180,7 +184,7 @@ Also, see the [open issues](https://github.com/marefpceo/react-shopping-cart/iss
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please open an issue with the tag ["enhancement"](https://github.com/marefpceo/react-shopping-cart/issues/new?labels=)
+If you have a suggestion that would make this better, please open an issue with the tag ["enhancement"](https://github.com/marefpceo/react-shopping-cart/issues/new?labels=enhancement)
 
 Don't forget to give the project a star! Thanks again!
 
@@ -206,7 +210,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Lamar - [Github](https://github.com/marefpceo)
 
 Project Link: [https://github.com/marefpceo/react-shopping-cart](https://github.com/marefpceo/react-shopping-cart)
 
@@ -217,9 +221,8 @@ Project Link: [https://github.com/marefpceo/react-shopping-cart](https://github.
 
 ## Acknowledgments
 
-- []()
-- []()
-- []()
+- [The Odin Project](https://theodinproject.com)
+- [uniqid](https://github.com/adamhalasz/uniqid/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
