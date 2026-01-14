@@ -62,7 +62,7 @@
 
 <div align='center'>
 
-[![React Shopping Cart Screen Shot][product-screenshot]](https://react-shopping-cart-4ft.pages.dev/)
+[![React Shopping Cart Screen Shot][product-screenshot]][live-link]
 
 </div>
 
@@ -85,6 +85,7 @@ Project requirements are as follows:
   - Product title and description
   - "Add To Cart" button
 - Fetch shop items from an API
+  - [Dummy JSON](https://dummyjson.com) API's were used
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,37 +102,57 @@ Project requirements are as follows:
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+There are two (2) ways to access the project:
+
+1. **[Live Version][live-link]** for a general user experience.
+
+2. **Local Installation** to install and run the project on a local machine. Proceed to the next section to verify prerequisites are met prior to installing.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+Verify that you have Node.js and NPM installed.
 
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+1. Open a terminal by pressing `Ctrl+Alt+T`.
+
+2. **Node:**
+
+   ```sh
+   node -v (or --version)
+   ```
+
+   _If not installed, download and installation procedures can be found at [Node.js][Nodejs-url] website._
+
+3. **NPM**
+
+   ```sh
+   npm -v (or --version)
+   ```
+
+   _If not installed, download and installation procedures can be found at [NPM][NPM-url] website._
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Open a terminal by pressing `Ctrl+Alt+T`.
+
 2. Clone the repo
    ```sh
    git clone https://github.com/marefpceo/react-shopping-cart.git
    ```
-3. Install NPM packages
+3. Change directory to `react-shopping-cart`
+   ```sh
+   cd react-shopping-cart
+   ```
+4. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+5. Start the dev server
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   npm run dev
    ```
-5. Change git remote url to avoid accidental pushes to base project
+6. Open your web browser and navigate to:
    ```sh
-   git remote set-url origin marefpceo/react-shopping-cart
-   git remote -v # confirm the changes
+   http://localhost:5173/
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -140,10 +161,6 @@ This is an example of how to list things you need to use the software and how to
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
@@ -151,12 +168,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+View the [CHANGELOG]() to see all changes including features to expect on the next release.
 
-See the [open issues](https://github.com/marefpceo/react-shopping-cart/issues) for a full list of proposed features (and known issues).
+Also, see the [open issues](https://github.com/marefpceo/react-shopping-cart/issues) for a full list of proposed features (and known issues). If you would like to propose a new feature, see the Contributing section on how to do so.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -166,14 +180,9 @@ See the [open issues](https://github.com/marefpceo/react-shopping-cart/issues) f
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+If you have a suggestion that would make this better, please open an issue with the tag ["enhancement"](https://github.com/marefpceo/react-shopping-cart/issues/new?labels=)
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -239,3 +248,6 @@ Project Link: [https://github.com/marefpceo/react-shopping-cart](https://github.
 [vite-url]: https://vite.dev/
 [CSS]: https://img.shields.io/badge/-CSS-000?style=for-the-badge&logo=CSS
 [css-url]: https://www.w3.org/Style/CSS/Overview.en.html
+[live-link]: https://react-shopping-cart-4ft.pages.dev/
+[Nodejs-url]: https://nodejs.org/
+[NPM-url]: https://npmjs.com/
