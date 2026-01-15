@@ -46,49 +46,6 @@ function Header({ cartCount, updateCategory }) {
         </div>
         <Nav cartCount={cartCount} />
       </div>
-
-      {location.pathname === '/shop' ? (
-        <ul className='menu-lg'>
-          <li>
-            <Link to={'/shop'} onClick={() => updateCategory('smartphones')}>
-              <p>Smart Phones</p>
-            </Link>
-          </li>
-          <li>&bull;</li>
-          <li>
-            <Link to={'/shop'} onClick={() => updateCategory('laptops')}>
-              <p>Laptops</p>
-            </Link>
-          </li>
-          <li>&bull;</li>
-          <li>
-            <Link to={'/shop'} onClick={() => updateCategory('fragrances')}>
-              <p>Fragrances</p>
-            </Link>
-          </li>
-          <li>&bull;</li>
-          <li>
-            <Link to={'/shop'} onClick={() => updateCategory('skincare')}>
-              <p>Skin Care</p>
-            </Link>
-          </li>
-          <li>&bull;</li>
-          <li>
-            <Link to={'/shop'} onClick={() => updateCategory('groceries')}>
-              <p>Groceries</p>
-            </Link>
-          </li>
-          <li>&bull;</li>
-          <li>
-            <Link
-              to={'/shop'}
-              onClick={() => updateCategory('home-decoration')}
-            >
-              <p>Home Decor</p>
-            </Link>
-          </li>
-        </ul>
-      ) : null}
     </header>
   );
 }
