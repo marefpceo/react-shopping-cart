@@ -33,7 +33,6 @@ function Shop() {
     // Gets list of products
     async function getData() {
       try {
-        // TODO API links broken - update to display a message saying that items are out of stock -  and return them to the previous page.
         const response = await fetch('https://dummyjson.com/products');
         let responseData = await response.json();
 
@@ -116,12 +115,6 @@ function Shop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function handleCategoryChange() {
-    const catInput = document.getElementById('cat-list').value;
-    updateCategory(catInput);
-    handleScrollToTop();
-  }
-
   return (
     <>
       {category === '' ? null : (
@@ -145,15 +138,6 @@ function Shop() {
       )}
 
       <div className='card-div'>
-        <select name='category' id='cat-list' onChange={handleCategoryChange}>
-          <option value=''>All Products</option>
-          <option value='smartphones'>Smart Phones</option>
-          <option value='laptops'>Laptops</option>
-          <option value='fragrances'>Fragrances</option>
-          <option value='skincare'>Skin Care</option>
-          <option value='groceries'>Groceries</option>
-          <option value='home-decoration'>Home Decor</option>
-        </select>
         <img
           src={returnIcon}
           alt=''

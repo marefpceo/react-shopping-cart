@@ -1,8 +1,9 @@
 {
   "name": "react-shopping-cart",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -31,10 +32,10 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "husky": "^8.0.0",
     "jsdom": "^22.1.0",
-    "lint-staged": "^14.0.1",
+    "lint-staged": "^16.2.7",
     "prettier": "3.0.3",
-    "vite": "^4.4.5",
-    "vitest": "^0.34.5"
+    "vite": "^7.3.1",
+    "vitest": "^4.0.17"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
